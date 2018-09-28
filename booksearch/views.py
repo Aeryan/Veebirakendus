@@ -3,14 +3,12 @@ from django.template import Context, Template
 import os
 import psycopg2
 
-DATABASE_URL = os.environ['DATABASE_URL']
-
-def top(request):
+def index(request):
     return render(request, 'welcome/Frontpage.html', {})
 
 
-def index(request):
-
+def top(request):
+    DATABASE_URL = os.environ['DATABASE_URL']
     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
     cur = conn.cursor()
     d = {}
