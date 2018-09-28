@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.template import Context, Template
+from django.template import Context
+from django.http import HttpResponse
 import os
 import psycopg2
 
@@ -12,16 +13,9 @@ def top(request):
     DATABASE_URL = os.environ['DATABASE_URL']
     conn = psycopg2.connect(DATABASE_URL, sslmode='require')
     cur = conn.cursor()
-
-    d = {}
-    d["top3books"] = []
     cur.execute("SELECT * FROM Raamatud;")
-    for i in range(3):
-        book = cur.fetchone()
-        d["top3books"][i] = book[1]
+    book = cur.fetchone()
     cur.close()
     conn.close()
-    t = Template("Top 3 raamatut:\n{{top3books.0}}\n{{top3books.1}}"
-                 "\n{{top3books.2}}")
-    return t.render(Context(d))
-    # cur.execute("SELECT * FROM Raamatud")
+    html = "<html><body>Top1 raamat on %s.</body></html>" % book[0]
+    return HttpResponse(html)
