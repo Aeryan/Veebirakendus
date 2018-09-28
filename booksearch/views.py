@@ -17,5 +17,5 @@ def top(request):
     book = cur.fetchone()
     cur.close()
     conn.close()
-    html = "<html><body>Top1 raamat on %s.</body></html>" % book[0]
+    html = "<html><body>Top1 raamat on %s.</body></html>" % book[1]
     return HttpResponse(html)
