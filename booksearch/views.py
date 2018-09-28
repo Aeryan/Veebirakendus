@@ -3,9 +3,7 @@ from django.template import Context, Template
 import os
 import psycopg2
 
-DATABASE_URL = os.environ[
-        'postgres://bzhasqfkpvqslf:fc18438928bbe086372066469a856974e44f8aaddadc8edeb6aaca54f6f7142e@' +
-        'ec2-54-217-235-159.eu-west-1.compute.amazonaws.com:5432/d40rmetu5fsrvu']
+DATABASE_URL = os.environ['DATABASE_URL']
 
 def top(request):
     return render(request, 'welcome/Frontpage.html', {})
