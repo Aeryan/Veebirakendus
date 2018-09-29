@@ -6,7 +6,7 @@ import psycopg2
 
 
 def index(request):
-    return render(request, 'welcome/Frontpage.html', {})
+    return render(request, 'booksearch/Frontpage.html', {})
 
 
 def top(request):
