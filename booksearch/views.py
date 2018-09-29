@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.template import Context
 from django.http import HttpResponse
 import os
 import psycopg2

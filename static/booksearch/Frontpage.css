@@ -1,8 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
 body{
     background: #f2f2f2;
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
 }
 
 /*Navigation bar*/
@@ -71,8 +69,8 @@ li:hover:not(.active) {
 
 .searchButton {
     position: absolute;
-    right: -50px;
-    width: 40px;
+    right: -70px;
+    width: 60px;
     height: 36px;
     border: 1px solid #00B4CC;
     background: #00B4CC;
