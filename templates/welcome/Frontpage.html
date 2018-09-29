@@ -3,8 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <title>Bookworm</title>
+    <link rel="stylesheet" type="text/css" href="Frontpage.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
-<p>Welcome to Bookworm!</p>
+<!--Navigation bar-->
+<ul>
+    <li style="float:left"><a href="Frontpage.html">BOOKWORM</a></li>
+    <li onclick="document.getElementById('signup').style.display='block'">Sign up</a></li>
+    <li onclick="document.getElementById('login').style.display='block'">Log in</li>
+</ul>
+<div class="wrap">
+
+    <!--Search box-->
+    <div class="search">
+        <input type="text" class="searchTerm" placeholder="Kirjuta siia, mida soovid otsida">
+        <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+
+</div>
+
+<div id="login" class="popup">
+
+    <form class="popup-content animate">
+        <div class="imgcontainer">
+        <span onclick="document.getElementById('login').style.display='none'"
+    class="sulge" title="Sulge">&times;</span>
+        </div>
+
+        <div class="container">
+            <label for="k_nimi"><b>Kasutajanimi</b></label>
+            <input type="text" placeholder="Sisesta kasutajanimi" name="k_nimi" required>
+            <label for="parool"><b>Parool</b></label>
+            <input type="text" placeholder="Sisesta parool" name="parool" required>
+
+            <button type="submit" id="loginButton">Logi sisse</button>
+            <label>
+                <input type="checkbox" checked="checked" name="mäleta">Mäleta mind
+            </label>
+        </div>
+
+        <div class="container">
+            <button type="button" onclick="document.getElementById('login').style.display='none'"
+                    class="tühista">Tühista</button>
+            <span class="parool"><a href="#">Unustasid parooli?</a> </span>
+        </div>
+    </form>
+</div>
+
+<div id="signup" class="popup">
+
+    <form class="popup-content animate">
+        <div class="imgcontainer">
+        <span onclick="document.getElementById('signup').style.display='none'"
+    class="sulge" title="Sulge">&times;</span>
+        </div>
+
+        <div class="container">
+            <label for="k_nimi"><b>Kasutajanimi</b></label>
+            <input type="text" placeholder="Sisesta kasutajanimi" name="k_nimi" required>
+            <label for="parool"><b>Parool</b></label>
+            <input type="text" placeholder="Sisesta parool" name="parool" required>
+
+            <button type="submit" id="signupButton">Loo kasutaja</button>
+
+        </div>
+
+        <div class="container">
+            <button type="button" onclick="document.getElementById('signup').style.display='none'"
+                    class="tühista">Tühista</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    var login = document.getElementById('login');
+    var signup = document.getElementById('signup')
+    window.onclick = function (event) {
+        if (event.target == login) {
+            login.style.display = "none"
+        }
+        if (event.target == signup) {
+            signup.style.display = "none"
+        }
+    }
+</script>
+
 </body>
 </html>
