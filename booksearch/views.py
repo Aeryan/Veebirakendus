@@ -1,11 +1,24 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from .forms import Signup
+from .models import SignupModel
 import os
 import psycopg2
 
 
 def index(request):
-    return render(request, 'booksearch/Frontpage.html', {})
+    if request.method == 'POST':
+        form = Signup(request.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data['k_nimi']
+            password = form.cleaned_data['parool']
+            p = SignupModel(name=name, password=password)
+            p.save()
+            return HttpResponseRedirect('')
+    else:
+        form = Signup
+    return render(request, 'booksearch/Frontpage.html', {'form': form})
 
 
 def top(request):

@@ -6,6 +6,7 @@
     <title>Bookworm</title>
     <link rel="stylesheet" type="text/css" href="{% static 'booksearch/Frontpage.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="script" href="{% static 'booksearch/scripts.js' %}">
 </head>
 <body>
 <!--Navigation bar-->
@@ -56,18 +57,20 @@
 
 <div id="signup" class="popup">
 
-    <form class="popup-content animate">
+    <form class="popup-content animate" method="post">{% csrf_token %}
         <div class="imgcontainer">
         <span onclick="document.getElementById('signup').style.display='none'"
     class="sulge" title="Sulge">&times;</span>
         </div>
 
         <div class="container">
+            {{ form }}
+            <!--
             <label for="k_nimi"><b>Kasutajanimi</b></label>
             <input type="text" placeholder="Sisesta kasutajanimi" name="k_nimi" required id="k_nimi" />
             <label for="parool"><b>Parool</b></label>
             <input type="text" placeholder="Sisesta parool" name="parool" required id="parool" />
-
+-->
             <button type="submit" id="signupButton">Loo kasutaja</button>
 
         </div>
@@ -78,19 +81,6 @@
         </div>
     </form>
 </div>
-
-<script>
-    var login = document.getElementById('login');
-    var signup = document.getElementById('signup')
-    window.onclick = function (event) {
-        if (event.target == login) {
-            login.style.display = "none"
-        }
-        if (event.target == signup) {
-            signup.style.display = "none"
-        }
-    }
-</script>
-
+<script type="text/javascript" src="{% static 'booksearch/scripts.js' %}"></script>
 </body>
 </html>
