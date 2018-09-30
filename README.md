@@ -1,6 +1,6 @@
 # Veebirakendus
 
-(https://www.vl2018-ryhm15.herokuapp.com "Projekti testkeskkond")
+[Projekti testkeskkond](https://www.vl2018-ryhm15.herokuapp.com)
 
 
 Veebilehtede kirjutamisel on kasutatud järgmisi resursse:
