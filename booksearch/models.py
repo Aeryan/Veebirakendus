@@ -1,6 +1,6 @@
 from django.db import models
 
 
-class SignupModel(models.Model):
+class kasutajad(models.Model):
     name = models.CharField(max_length=50)
     password = models.CharField(max_length=30)

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import Signup
-from .models import SignupModel
+from .models import Kasutajad
 import os
 import psycopg2
 
@@ -13,7 +13,7 @@ def index(request):
         if form.is_valid():
             name = form.cleaned_data['k_nimi']
             password = form.cleaned_data['parool']
-            p = SignupModel(name=name, password=password)
+            p = Kasutajad(name=name, password=password)
             p.save()
             return HttpResponseRedirect('')
     else:
