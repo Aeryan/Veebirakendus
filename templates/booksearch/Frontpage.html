@@ -11,7 +11,7 @@
 <!--Navigation bar-->
 <ul>
     <li style="float:left"><a href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
-    <li onclick="document.getElementById('login').style.display='none'; document.getElementById('signup').style.display='block'">Sign up</a></li>
+    <li onclick="document.getElementById('login').style.display='none'; document.getElementById('signup').style.display='block'">Sign up</li>
     <li onclick="document.getElementById('signup').style.display='none'; document.getElementById('login').style.display='block'">Log in</li>
 </ul>
 <div class="wrap">
@@ -36,9 +36,9 @@
 
         <div class="container">
             <label for="k_nimi"><b>Kasutajanimi</b></label>
-            <input type="text" placeholder="Sisesta kasutajanimi" name="k_nimi" required>
+            <input type="text" placeholder="Sisesta kasutajanimi" name="k_nimi" required id="k_nimi" />
             <label for="parool"><b>Parool</b></label>
-            <input type="text" placeholder="Sisesta parool" name="parool" required>
+            <input type="text" placeholder="Sisesta parool" name="parool" required id="parool" />
 
             <button type="submit" id="loginButton">Logi sisse</button>
             <label>
@@ -64,9 +64,9 @@
 
         <div class="container">
             <label for="k_nimi"><b>Kasutajanimi</b></label>
-            <input type="text" placeholder="Sisesta kasutajanimi" name="k_nimi" required>
+            <input type="text" placeholder="Sisesta kasutajanimi" name="k_nimi" required id="k_nimi" />
             <label for="parool"><b>Parool</b></label>
-            <input type="text" placeholder="Sisesta parool" name="parool" required>
+            <input type="text" placeholder="Sisesta parool" name="parool" required id="parool" />
 
             <button type="submit" id="signupButton">Loo kasutaja</button>
 
