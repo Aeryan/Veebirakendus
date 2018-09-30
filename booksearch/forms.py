@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 
 
-class Signup(forms.ModelForm):
+class Signup(forms.Form):
     k_nimi = forms.CharField(label='Kasutajanimi', max_length=50,
                              error_messages={'invalid': "Kasutajanimi on juba võetud!"})
     parool = forms.CharField(label='Parool', max_length=30)
