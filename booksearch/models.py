@@ -2,5 +2,5 @@ from django.db import models
 
 
 class kasutajad(models.Model):
-    name = models.CharField(max_length=50)
-    password = models.CharField(max_length=30)
+    kasutajanimi = models.CharField(max_length=50)
+    parool = models.CharField(max_length=30)

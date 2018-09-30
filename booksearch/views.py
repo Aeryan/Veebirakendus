@@ -13,7 +13,7 @@ def index(request):
         if form.is_valid():
             name = form.cleaned_data['k_nimi']
             password = form.cleaned_data['parool']
-            p = kasutajad(name=name, password=password)
+            p = kasutajad(kasutajanimi=name, parool=password)
             p.save()
             return HttpResponseRedirect('')
     else:
