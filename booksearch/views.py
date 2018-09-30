@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import Signup
 from .models import kasutajad
+from django.db import IntegrityError
 import os
 import psycopg2
 
@@ -14,7 +15,10 @@ def index(request):
             name = form.cleaned_data['k_nimi']
             password = form.cleaned_data['parool']
             p = kasutajad(kasutajanimi=name, parool=password)
-            p.save()
+            try:
+                p.save()
+            except IntegrityError:
+                return
             return HttpResponseRedirect('')
     else:
         form = Signup
