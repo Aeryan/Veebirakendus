@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .forms import Signup
-from .models import Kasutajad
+from .models import kasutajad
 import os
 import psycopg2
 
