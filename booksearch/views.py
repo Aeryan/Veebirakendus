@@ -17,9 +17,9 @@ def index(request):
             p = kasutajad(kasutajanimi=name, parool=password)
             try:
                 p.save()
+                return HttpResponseRedirect('')
             except IntegrityError:
-                return
-            return HttpResponseRedirect('')
+                del Signup.cleaned_data['k_nimi']
     else:
         form = Signup
     return render(request, 'booksearch/Frontpage.html', {'form': form})
