@@ -10,7 +10,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #007acc;
+    background-color: black;
     border-radius: 5px;
 }
 
@@ -37,7 +37,7 @@ li {
 }
 
 li:hover:not(.active) {
-    background-color: #111;
+    background-color: #00B4CC;
 }
 
 .active {
