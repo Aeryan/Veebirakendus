@@ -33,3 +33,12 @@ signupButton.onclick = function (event) {
     }
     signup.style.display = "none";
 };
+
+function initMap() {
+    //var tekst = "BOOKWORM, Juhan Liivi 2.";
+    var liivi = {lat: 58.37824850000001, lng: 26.71467329999996};
+    var map = new google.maps.Map(document.getElementById('map'), {zoom: 17, center: liivi});
+    //var infowindow = new google.maps.InfoWindow({content: tekst});
+    var marker = new google.maps.Marker({position: liivi, map: map});
+    // marker.addListener(function() {infowindow.open(map, marker);});
+};
