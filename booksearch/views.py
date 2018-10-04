@@ -9,10 +9,10 @@ import bcrypt
 salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
 
 def frontpage(request):
-    return HttpResponse('booksearch/Frontpage')
+    return HttpResponse('templates/booksearch/Frontpage')
 
 def about(request):
-    return HttpResponse('booksearch/about')
+    return HttpResponse('templates/booksearch/about')
 
 def index(request):
     if request.method == 'POST':
