@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .forms import Signup
 from .models import kasutajad
