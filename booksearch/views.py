@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .forms import Signup
 from .models import kasutajad
@@ -7,6 +8,11 @@ import bcrypt
 
 salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
 
+def frontpage(request):
+    return HttpResponse('booksearch/Frontpage')
+
+def about(request):
+    return HttpResponse('booksearch/about')
 
 def index(request):
     if request.method == 'POST':
@@ -23,4 +29,3 @@ def index(request):
     else:
         form = Signup
     return render(request, 'booksearch/Frontpage.html', {'form': form})
-
