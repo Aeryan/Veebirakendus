@@ -1,15 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from .forms import Signup
 from .models import kasutajad
 from django.db import IntegrityError
+from django.shortcuts import render
 import bcrypt
 
 salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
 
 def about(request):
-    return HttpResponse('templates/booksearch/About')
+    return render(request, 'About.html')
 
 def index(request):
     if request.method == 'POST':
