@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import Signup
 from .models import kasutajad
@@ -8,11 +7,14 @@ import bcrypt
 
 salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
 
+
 def about(request):
     return render(request, 'booksearch/About.html')
 
+
 def search(request):
     return render(request, 'booksearch/Search.html')
+
 
 def index(request):
     if request.method == 'POST':
