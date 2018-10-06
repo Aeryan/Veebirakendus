@@ -69,7 +69,7 @@ li:hover:not(.active) {
 
 .searchButton {
     position: absolute;
-    top: 100%;
+    top: 25%;
     right: -50px;
     width: 40px;
     height: 36px;
@@ -81,7 +81,6 @@ li:hover:not(.active) {
     cursor: pointer;
     font-size: 20px;
 }
-
 /*Resize the wrap to see the search bar change!*/
 .wrap{
     width: 30%;
@@ -98,6 +97,10 @@ input[type=text], input[type="password"] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+}
+
+#otsinguvorm {
+    columns: 2;
 }
 
 #loginButton {

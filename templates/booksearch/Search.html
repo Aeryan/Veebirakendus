@@ -19,86 +19,11 @@
     <div class="centered">
         <h2>Otsingu tulemused</h2>
         <table>
+            {% for item in tulem %}
             <tr>
-                <th>Nimi</th>
-                <th>Kirjastus</th>
-                <th>Aasta</th>
+                <td>{{ item.pealkiri }}</td>
             </tr>
-            <tr>
-                <td>Raamat1</td>
-                <td>Kirjastus1</td>
-                <td>2011</td>
-            </tr>
-            <tr>
-                <td>Raamat2</td>
-                <td>Kirjastus2</td>
-                <td>2012</td>
-            </tr>
-            <tr>
-                <td>Raamat3</td>
-                <td>Kirjastus3</td>
-                <td>2013</td>
-            </tr>
-            <tr>
-                <td>Raamat4</td>
-                <td>Kirjastus4</td>
-                <td>2014</td>
-            </tr>
-            <tr>
-                <td>Raamat5</td>
-                <td>Kirjastus5</td>
-                <td>2015</td>
-            </tr>
-            <tr>
-                <td>Raamat6</td>
-                <td>Kirjastus6</td>
-                <td>2016</td>
-            </tr>
-            <tr>
-                <td>Raamat7</td>
-                <td>Kirjastus7</td>
-                <td>2017</td>
-            </tr>
-            <tr>
-                <td>Raamat8</td>
-                <td>Kirjastus8</td>
-                <td>2018</td>
-            </tr>
-            <tr>
-                <td>Raamat9</td>
-                <td>Kirjastus9</td>
-                <td>2019</td>
-            </tr>
-            <tr>
-                <td>Raamat10</td>
-                <td>Kirjastus10</td>
-                <td>2020</td>
-            </tr>
-            <tr>
-                <td>Raamat11</td>
-                <td>Kirjastus11</td>
-                <td>2021</td>
-            </tr>
-            <tr>
-                <td>Raamat12</td>
-                <td>Kirjastus12</td>
-                <td>2022</td>
-            </tr>
-            <tr>
-                <td>Raamat13</td>
-                <td>Kirjastus13</td>
-                <td>2023</td>
-            </tr>
-            <tr>
-                <td>Raamat14</td>
-                <td>Kirjastus14</td>
-                <td>2014</td>
-            </tr>
-            <tr>
-                <td>Raamat15</td>
-                <td>Kirjastus15</td>
-                <td>2015</td>
-            </tr>
+            {% endfor %}
         </table>
     </div>
 </div>
