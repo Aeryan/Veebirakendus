@@ -36,7 +36,7 @@ def index(request):
 
         if search.is_valid():
             sisend = search.cleaned_data['otsing']
-            tulem = raamatud.objects.get(pealkiri__icontains=sisend)
+            tulem = raamatud.objects.filter(pealkiri__icontains=sisend)
             return render(request, 'booksearch/Search.html', {'nimistik': tulem})
 
     else:
