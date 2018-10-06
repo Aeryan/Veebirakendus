@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+searchButton.onclick = function(event) {
+
+};
+
 signupButton.onclick = function (event) {
     var a = document.getElementsByTagName("INPUT");
     for (var i = 0; i < a.length; i++) {

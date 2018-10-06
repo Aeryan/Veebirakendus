@@ -6,31 +6,41 @@
     <title>Bookworm</title>
     <link rel="stylesheet" type="text/css" href="{% static 'booksearch/Frontpage.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-	<script src="booksearch/scripts.js"></script>
+	<script src="{% static 'booksearch/scripts.js' %}"></script>
     <!--<link rel="script" href="{% static 'booksearch/scripts.js' %}"> -->
 </head>
 <body>
-<!--Navigation bar-->
-<ul>
+
+<!--Navigation bars-->
+<ul id="loggedOutNavbar">
     <li style="float:left"><a href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
     <li><a href="https://vl2018-ryhm15.herokuapp.com/about">About</a></li>
     <li onclick="document.getElementById('login').style.display='none'; document.getElementById('signup').style.display='block'">Sign up</li>
     <li onclick="document.getElementById('signup').style.display='none'; document.getElementById('login').style.display='block'">Log in</li>
 </ul>
+<!-- Teine navbar, mis kuvatakse sisselogitud kasutajale
+<ul id="loggedInNavbar" >
+    <li style="float:left"><a href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
+    <li><a href="https://vl2018-ryhm15.herokuapp.com/about">About</a></li>
+    <li onclick="document.getElementById('login').style.display='none'; document.getElementById('signup').style.display='block'">Sign up</li>
+    <li onclick="document.getElementById('signup').style.display='none'; document.getElementById('login').style.display='block'">Log in</li>
+</ul>
+-->
+<!--Search box-->
 <div class="wrap">
-
-    <!--Search box-->
-    <div class="search">
-		<label for="otsing">
-            <a href="https://vl2018-ryhm15.herokuapp.com/search">Otsing</a><input type="text" class="searchTerm" placeholder="Kirjuta siia, mida soovid otsida" id="otsing">
-		</label>
-        <button type="submit" class="searchButton">
-            <em class="fa fa-search"></em>
-        </button>
-    </div>
+    <form method="post">{% csrf_token %}
+        <div class="search">
+            <table id="otsinguvorm">
+                {{ search }}
+            </table>
+            <button type="submit" id="searchButton"><em class="fa fa-search"></em>
+            </button>
+        </div>
+    </form>
 
 </div>
 
+<!-- Login modal -->
 <div id="login" class="popup">
 
     <form class="popup-content animate">
@@ -59,6 +69,8 @@
     </form>
 </div>
 
+
+<!-- Signup modal -->
 <div id="signup" class="popup">
 
     <form class="popup-content animate" method="post">{% csrf_token %}
