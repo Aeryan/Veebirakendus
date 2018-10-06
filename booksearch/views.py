@@ -11,6 +11,7 @@ salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
 def about(request):
     return render(request, 'booksearch/About.html')
 
+
 '''
 def search(request):
     if request.method == 'POST':
