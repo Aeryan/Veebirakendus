@@ -7,6 +7,6 @@ from . import views
 
 urlpatterns = [
     url(r'^about/$', views.about),
-    url(r'^search/$', views.search),
+    path('/search', views.search),
     path('', views.index, name='index')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -20,15 +20,15 @@
 <div class="wrap">
 
     <!--Search box-->
-    <div class="search">
-		<table id="otsinguvorm">
-            {{ search }}
-        </table>
-        <button type="submit" class="searchButton"
-        onclick="document.">
-            <em class="fa fa-search"></em>
-        </button>
-    </div>
+    <form method="post">{% csrf_token %}
+        <div class="search">
+            <table id="otsinguvorm">
+                {{ search }}
+            </table>
+            <button type="submit" id="searchButton"><em class="fa fa-search"></em>
+            </button>
+        </div>
+    </form>
 
 </div>
 

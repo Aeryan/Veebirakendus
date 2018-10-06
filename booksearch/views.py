@@ -11,19 +11,15 @@ salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
 def about(request):
     return render(request, 'booksearch/About.html')
 
-
+'''
 def search(request):
     if request.method == 'POST':
         search = Search(request.POST)
-        if search.is_valid():
-            sisend = search.cleaned_data['otsing']
-            tulem = raamatud.objects.filter(pealkiri=sisend)
-    else:
-        return HttpResponseRedirect('')
-    return render(request, 'booksearch/Search.html', {'nimistik': tulem})
+'''
 
 
 def index(request):
+
     if request.method == 'POST':
         form = Signup(request.POST)
         search = Search(request.POST)
@@ -36,6 +32,12 @@ def index(request):
             except IntegrityError:
                 return HttpResponseRedirect('')
             return HttpResponseRedirect('')
+
+        if search.is_valid():
+            sisend = search.cleaned_data['otsing']
+            tulem = raamatud.objects.filter(pealkiri=sisend)
+            return render(request, 'booksearch/Search.html', {'nimistik': tulem})
+
     else:
         form = Signup
         search = Search

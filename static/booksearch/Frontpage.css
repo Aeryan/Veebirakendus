@@ -67,7 +67,7 @@ li:hover:not(.active) {
     color: #00B4CC;
 }
 
-.searchButton {
+#searchButton {
     position: absolute;
     top: 25%;
     right: -50px;
