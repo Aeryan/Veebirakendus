@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyLists</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'booksearch/MyLists.css' %}">
+    <script src="{% static 'booksearch/scripts.js' %}"></script>
+</head>
+<body>
+<!--Navigation bar-->
+<ul>
+    <li style="float:left"><a href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
+    <li><a href="https://vl2018-ryhm15.herokuapp.com/about">About</a></li>
+    <li onclick="document.getElementById('login').style.display='none'; document.getElementById('signup').style.display='block'">Sign up</li>
+    <li onclick="document.getElementById('signup').style.display='none'; document.getElementById('login').style.display='block'">Log in</li>
+</ul>
+<!--Own/Want bar-->
+<div class="upper">
+    <ul>
+        <li class="active">OWN</li>
+        <li>WANT</li>
+    </ul>
+</div>
+
+<div class="split left">
+    <div class="centered">
+        <table>
+            <tr>
+                <th>Nimi</th>
+                <th>Kirjastus</th>
+                <th>Aasta</th>
+            </tr>
+            <tr>
+                <td>Raamat1</td>
+                <td>Kirjastus1</td>
+                <td>2011</td>
+            </tr>
+            <tr>
+                <td>Raamat2</td>
+                <td>Kirjastus2</td>
+                <td>2012</td>
+            </tr>
+            <tr>
+                <td>Raamat3</td>
+                <td>Kirjastus3</td>
+                <td>2013</td>
+            </tr>
+            <tr>
+                <td>Raamat4</td>
+                <td>Kirjastus4</td>
+                <td>2014</td>
+            </tr>
+            <tr>
+                <td>Raamat5</td>
+                <td>Kirjastus5</td>
+                <td>2015</td>
+            </tr>
+            <tr>
+                <td>Raamat6</td>
+                <td>Kirjastus6</td>
+                <td>2016</td>
+            </tr>
+            <tr>
+                <td>Raamat7</td>
+                <td>Kirjastus7</td>
+                <td>2017</td>
+            </tr>
+            <tr>
+                <td>Raamat8</td>
+                <td>Kirjastus8</td>
+                <td>2018</td>
+            </tr>
+            <tr>
+                <td>Raamat9</td>
+                <td>Kirjastus9</td>
+                <td>2019</td>
+            </tr>
+            <tr>
+                <td>Raamat10</td>
+                <td>Kirjastus10</td>
+                <td>2020</td>
+            </tr>
+            <tr>
+                <td>Raamat11</td>
+                <td>Kirjastus11</td>
+                <td>2021</td>
+            </tr>
+            <tr>
+                <td>Raamat12</td>
+                <td>Kirjastus12</td>
+                <td>2022</td>
+            </tr>
+            <tr>
+                <td>Raamat13</td>
+                <td>Kirjastus13</td>
+                <td>2023</td>
+            </tr>
+            <tr>
+                <td>Raamat14</td>
+                <td>Kirjastus14</td>
+                <td>2014</td>
+            </tr>
+            <tr>
+                <td>Raamat15</td>
+                <td>Kirjastus15</td>
+                <td>2015</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="split right">
+    <div class="centered">
+        <h2>Javascriptiga (või Djangoga?) rohkem infot raamatu kohta...</h2>
+        <p>Või äkki jätame selle osa üldse ära? Ehk lihtsalt üks leht (mitte kaheks jagatud)?</p>
+    </div>
+</div>
+
+<div class="footer">
+    Siia tuleb Advanced Search...
+</div>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+body{
+    background: #f2f2f2;
+    font-family: sans-serif;
+}
+
+/*Navigation bar*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    border-radius: 5px;
+}
+
+li {
+    float: right;
+    border-right:1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+}
+
+li {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li:hover:not(.active) {
+    background-color: #00B4CC;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+
+/* Split the screen in half */
+.split {
+    width: 48%;
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden;
+    padding-top: 0;
+}
+
+/* Control the left side */
+.left {
+    top: 125px;
+    height: 74%;
+    left: 1%;
+}
+
+/* Control the right side */
+.right {
+    top: 60px;
+    height: 90%;
+    right: 1%;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #e5e5e5;
+}
+
+.footer {
+    width: 48%;
+    position: fixed;
+    z-index: 1;
+    left: 1%;
+    bottom: 0.5%;
+    height: 5%;
+    text-align: center;
+}
+
+.upper {
+    top: 60px;
+    width: 48%;
+    position: fixed;
+    z-index: 1;
+    left: 1%;
+    height: 8%;
+    text-align: center;
+}
+
+/* Own/Want bar jaoks */
+.upper ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.upper li {
+    width: 100%;
+}
+
+.upper li a {
+    text-decoration: none;
+    color: white;
+}
+
+.upper li {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 0;
+    text-decoration: none;
+    font-size: 30px;
+
+}
+
+.upper li:hover:not(.active) {
+    background-color: #00B4CC;
+    height: 100%;
+}
+
+.upper .active {
+    background-color: #00B4CC;
+    height: 100%;
+}
