@@ -50,20 +50,20 @@ li:hover:not(.active) {
     width: 48%;
     position: fixed;
     z-index: 1;
-    top: 80px;
+    top: 60px;
     overflow-x: hidden;
     padding-top: 0;
 }
 
 /* Control the left side */
 .left {
-    height: 82%;
+    height: 84%;
     left: 1%;
 }
 
 /* Control the right side */
 .right {
-    height: 88%;
+    height: 90%;
     right: 1%;
 }
 
@@ -89,5 +89,6 @@ tr:nth-child(even) {
     z-index: 1;
     left: 1%;
     bottom: 0.5%;
+    height: 5%;
     text-align: center;
 }
