@@ -47,7 +47,6 @@ li:hover:not(.active) {
 
 /* Split the screen in half */
 .split {
-    height: 88%;
     width: 48%;
     position: fixed;
     z-index: 1;
@@ -58,11 +57,13 @@ li:hover:not(.active) {
 
 /* Control the left side */
 .left {
+    height: 82%;
     left: 1%;
 }
 
 /* Control the right side */
 .right {
+    height: 88%;
     right: 1%;
 }
 
@@ -80,4 +81,13 @@ th, td {
 
 tr:nth-child(even) {
     background-color: #e5e5e5;
+}
+
+.footer {
+    width: 48%;
+    position: fixed;
+    z-index: 1;
+    left: 1%;
+    bottom: 0.5%;
+    text-align: center;
 }
