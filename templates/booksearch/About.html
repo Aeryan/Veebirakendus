@@ -5,7 +5,22 @@
     <meta charset="UTF-8">
     <title>About</title>
     <link rel="stylesheet" type="text/css" href="{% static 'booksearch/About.css' %}">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="{% static 'booksearch/scripts.js' %}"></script>
+    <script>
+        function yHandler() {
+            var wrap = document.getElementById('wrap');
+            var contentHeight = wrap.offsetHeight; // Gets page content height
+            var yOffset = window.pageYOffset; // Gets the vertical scroll position
+            var y = yOffset + window.innerHeight;
+            if (y >= contentHeight) {
+                wrap.innerHTML = '<img src="https://www.incimages.com/uploaded_files/image/970x450/getty_598063032_349381.jpg">' +'<br>'
+                    + '<img src="https://cdn-images-1.medium.com/max/1024/1*YLlZ96J3p8GFkIh1USVMzg.jpeg">';
+                // Ajax call to get more dynamic data
+            }
+        };
+        window.onscroll = yHandler;
+    </script>
 </head>
 <body>
 <!--!--Navigation bar-->
@@ -20,7 +35,16 @@
 
 <h3>Google Map</h3>
 <div id="map"></div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjW6r72Usb-ahHQt1hqqUIL-gIPHa5VLI&callback=initMap" async defer>initMap()</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjW6r72Usb-ahHQt1hqqUIL-gIPHa5VLI&callback=initMap"
+        async defer>initMap()</script>
 
+<p>Bookworm on väga lahe,<br>
+    väga lahe,<br>
+    vääge lahe...<br>
+    väga väga laaaahee....
+</p>
+<div id="wrap">
+    <img src="https://www.incimages.com/uploaded_files/image/970x450/getty_598063032_349381.jpg">
+</div>
 </body>
 </html>
