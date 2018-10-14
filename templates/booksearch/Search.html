@@ -40,5 +40,56 @@
     </div>
 </div>
 
+<!-- Login modal -->
+<div id="login" class="popup">
+
+    <form class="popup-content animate">
+        <div class="imgcontainer">
+        <span onclick="document.getElementById('login').style.display='none'"
+    class="sulge" title="Sulge">&times;</span>
+        </div>
+
+        <div class="container">
+            <label for="k_nimi"><em>Kasutajanimi</em></label>
+            <input type="text" placeholder="Sisesta kasutajanimi" name="k_nimi" required id="k_nimi" />
+            <label for="parool"><em>Parool</em></label>
+            <input type="text" placeholder="Sisesta parool" name="parool" required id="parool" />
+
+            <button type="submit" id="loginButton">Logi sisse</button>
+            <label for="kast1">
+                <input id="kast1" type="checkbox" checked="checked" name="mäleta">Mäleta mind
+            </label>
+        </div>
+
+        <div class="container">
+            <button type="button" onclick="document.getElementById('login').style.display='none'"
+                    class="tühista">Tühista</button>
+            <span class="parool"><a href="#">Unustasid parooli?</a> </span>
+        </div>
+    </form>
+</div>
+
+
+<!-- Signup modal -->
+<div id="signup" class="popup">
+
+    <form class="popup-content animate" method="post">{% csrf_token %}
+        <div class="imgcontainer">
+        <span onclick="document.getElementById('signup').style.display='none'"
+    class="sulge" title="Sulge">&times;</span>
+        </div>
+
+        <div class="container">
+            <table>{{ form }}</table>
+            <button type="submit" id="signupButton">Loo kasutaja</button>
+        </div>
+
+        <div class="container">
+            <button type="button" onclick="document.getElementById('signup').style.display='none'"
+                    class="tühista">Tühista</button>
+        </div>
+    </form>
+</div>
+<script src="{% static 'booksearch/scripts.js' %}"></script>
 </body>
 </html>
