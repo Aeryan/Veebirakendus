@@ -22,11 +22,11 @@ def search(request):
 def index(request):
 
     if request.method == 'POST':
-        form = Signup(request.POST)
+        signupform = Signup(request.POST)
         search = Search(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['k_nimi']
-            password = bcrypt.hashpw(form.cleaned_data['parool'].encode(), salt).decode()
+        if signupform.is_valid():
+            name = signupform.cleaned_data['k_nimi']
+            password = bcrypt.hashpw(signupform.cleaned_data['parool'].encode(), salt).decode()
             p = kasutajad(kasutajanimi=name, parool=password)
             try:
                 p.save()
@@ -37,10 +37,10 @@ def index(request):
         if search.is_valid():
             sisend = search.cleaned_data['otsing']
             tulem = raamatud.objects.filter(pealkiri__icontains=sisend)
-            return render(request, 'booksearch/Search.html', {'nimistik': tulem})
+            return render(request, 'booksearch/Search.html', {'nimistik': tulem, "signupform": signupform})
 
     else:
-        form = Signup
+        signupform = Signup
         search = Search
-    return render(request, 'booksearch/Frontpage.html', {'form': form, 'search': search})
+    return render(request, 'booksearch/Frontpage.html', {'signupform': signupform, 'search': search})
 
