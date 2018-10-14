@@ -29,9 +29,9 @@ def signout(request):
 def index(request):
 
     if request.method == 'POST':
-        loginform = Login(request.POST)
-        signupform = Signup(request.POST)
-        search = Search(request.POST)
+        loginform = Login(None or request.POST)
+        signupform = Signup(None or request.POST)
+        search = Search(None or request.POST)
 
         if loginform.is_valid():
             login_name = loginform.cleaned_data['login_k_nimi']

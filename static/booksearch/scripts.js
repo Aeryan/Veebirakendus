@@ -11,7 +11,37 @@ window.onclick = function (event) {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-    var elements = document.getElementsByTagName("INPUT");
+    var elements = document.getElementsByClassName('loginfield');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].oninvalid = function (e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                e.target.setCustomValidity("Palun täida see lünk.");
+            }
+        };
+        elements[i].oninput = function (e) {
+            e.target.setCustomValidity("");
+        }
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var elements = document.getElementsByClassName('signupfield');
+    for (var i = 0; i < elements.length; i++) {
+        elements[i].oninvalid = function (e) {
+            e.target.setCustomValidity("");
+            if (!e.target.validity.valid) {
+                e.target.setCustomValidity("Palun täida see lünk.");
+            }
+        };
+        elements[i].oninput = function (e) {
+            e.target.setCustomValidity("");
+        }
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    var elements = document.getElementsByClassName('searchfield');
     for (var i = 0; i < elements.length; i++) {
         elements[i].oninvalid = function (e) {
             e.target.setCustomValidity("");
