@@ -1,5 +1,6 @@
 var login = document.getElementById('login');
 var signup = document.getElementById('signup');
+
 window.onclick = function (event) {
     if (event.target == login) {
         login.style.display = "none";
@@ -23,10 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
-
-searchButton.onclick = function(event) {
-
-};
 
 signupButton.onclick = function (event) {
     var a = document.getElementsByTagName("INPUT");
