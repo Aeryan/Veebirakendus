@@ -4,8 +4,9 @@ from .models import raamatud
 from django.db import IntegrityError
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate, logout
-import bcrypt
 from django.contrib.auth.models import User
+from django.db.models import Count
+import bcrypt
 
 salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
 
@@ -54,8 +55,14 @@ def index(request):
         if search.is_valid():
             sisend = search.cleaned_data['otsing']
             tulem = raamatud.objects.filter(pealkiri__icontains=sisend)
-            return render(request, 'booksearch/Search.html', {'nimistik': tulem, 'loginform': loginform,
-                                                              "signupform": signupform})
+            arv = raamatud.objects.filter(pealkiri__icontains=sisend).count()
+            if arv == 1:
+                sone = 'Leiti 1 tulemus'
+            else:
+                sone = 'Leiti ' + str(arv) + ' tulemust'
+            return render(request, 'booksearch/Search.html',
+                          {'nimistik': tulem, 'loginform': loginform,
+                           "signupform": signupform, 'tulemuste_sone': sone})
 
     else:
         loginform = Login
