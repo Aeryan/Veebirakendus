@@ -33,9 +33,9 @@
 <ul id="loggedInNavbar">
     <li style="float:left"><a href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
     <li><a href="https://vl2018-ryhm15.herokuapp.com/about">About</a></li>
-    <li>User: {{ user.get_username }}</li>
-    <li><a href="{% url 'signout' %}">Log out</a></li>
-    <li>Settings</li>
+    <li>Kasutaja: {{ user.get_username }}</li>
+    <li><a href="{% url 'signout' %}">Logi välja</a></li>
+    <li>Seaded</li>
 </ul>
 {% else %}
 <ul id="loggedOutNavbar">
