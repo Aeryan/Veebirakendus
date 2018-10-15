@@ -190,5 +190,5 @@ span.parool {
 
 .center {
     margin:auto;
-    align-content: center;
+    display: block;
 }
