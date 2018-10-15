@@ -187,3 +187,7 @@ span.parool {
     color: red;
     cursor: pointer;
 }
+
+#googleauth {
+    alignment: center;
+}
