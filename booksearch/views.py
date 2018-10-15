@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from .forms import Login, Signup, Search
 from .models import raamatud
-from django.db import IntegrityError
+from django.db import IntegrityError, connection
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
@@ -56,7 +56,10 @@ def index(request):
         if search.is_valid():
             sisend = search.cleaned_data['otsing']
             tulem = raamatud.objects.filter(pealkiri__icontains=sisend)
-            arv = raamatud.objects.filter(pealkiri__icontains=sisend).count()
+            cursor = connection.cursor()
+            cursor.execute("SELECT count(*) FROM booksearch_raamatud WHERE pealkiri ILIKE '%" + sisend + "%'")
+            arv = cursor.fetchone()[0]
+
             if arv == 1:
                 sone = 'Leiti 1 tulemus'
             else:
