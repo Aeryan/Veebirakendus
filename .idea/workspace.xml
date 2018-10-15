@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d000f11c-7af1-46c2-9884-0d547f2d52e6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/booksearch/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/booksearch/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/booksearch/About.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booksearch/About.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/booksearch/Frontpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booksearch/Frontpage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/booksearch/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booksearch/Search.html" afterDir="false" />
     </list>
@@ -61,7 +59,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="154" />
-          <entry key="html" value="765" />
+          <entry key="html" value="843" />
           <entry key="js" value="39" />
           <entry key="py" value="1198" />
         </counts>
@@ -69,7 +67,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="154" />
-          <entry key="HTML" value="765" />
+          <entry key="HTML" value="843" />
           <entry key="JavaScript" value="39" />
           <entry key="Python" value="1198" />
         </counts>
@@ -81,8 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/booksearch/Frontpage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="27" column="65" selection-start-line="27" selection-start-column="65" selection-end-line="27" selection-end-column="65" />
+            <state relative-caret-position="417">
+              <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
               <folding>
                 <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#0;n#ul#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -94,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/booksearch/About.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="43" column="136" selection-start-line="43" selection-start-column="136" selection-end-line="43" selection-end-column="136" />
+            <state>
+              <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
               <folding>
                 <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#0;n#ul#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -107,8 +105,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/booksearch/Search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-654">
-              <caret line="29" column="136" selection-start-line="29" selection-start-column="136" selection-end-line="29" selection-end-column="136" />
+            <state relative-caret-position="425">
+              <caret line="28" column="58" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
               <folding>
                 <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#0;n#ul#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -140,13 +138,14 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>otsi</find>
-      <find>About</find>
       <find>Log in</find>
       <find>Sign up</find>
+      <find>About</find>
+      <find>Meist</find>
     </findStrings>
     <replaceStrings>
-      <replace>Meist</replace>
       <replace>Logi sisse</replace>
+      <replace>Meist</replace>
       <replace>Registreeri</replace>
     </replaceStrings>
   </component>
@@ -164,8 +163,8 @@
         <option value="$PROJECT_DIR$/booksearch/views.py" />
         <option value="$PROJECT_DIR$/static/booksearch/Frontpage.css" />
         <option value="$PROJECT_DIR$/booksearch/forms.py" />
-        <option value="$PROJECT_DIR$/templates/booksearch/Frontpage.html" />
         <option value="$PROJECT_DIR$/templates/booksearch/About.html" />
+        <option value="$PROJECT_DIR$/templates/booksearch/Frontpage.html" />
         <option value="$PROJECT_DIR$/templates/booksearch/Search.html" />
       </list>
     </option>
@@ -362,17 +361,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/booksearch/Frontpage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="27" column="65" selection-start-line="27" selection-start-column="65" selection-end-line="27" selection-end-column="65" />
-          <folding>
-            <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/booksearch/Frontpage.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -380,10 +368,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/booksearch/Frontpage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/booksearch/About.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="43" column="136" selection-start-line="43" selection-start-column="136" selection-end-line="43" selection-end-column="136" />
+        <state>
+          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
           <folding>
             <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#ul#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -393,8 +392,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/booksearch/Search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-654">
-          <caret line="29" column="136" selection-start-line="29" selection-start-column="136" selection-end-line="29" selection-end-column="136" />
+        <state relative-caret-position="425">
+          <caret line="28" column="58" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
           <folding>
             <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#ul#1;n#body#0;n#html#0;n#!!top" expanded="true" />

@@ -17,7 +17,7 @@
 {% if user.is_authenticated %}
 <ul id="loggedInNavbar">
     <li style="float:left"><a href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
-    <li><a href="https://vl2018-ryhm15.herokuapp.com/Meist">Meist</a></li>
+    <li><a href="https://vl2018-ryhm15.herokuapp.com/about">Meist</a></li>
     <li>User: {{ user.get_username }}</li>
     <li><a href="{% url 'signout' %}">Log out</a></li>
     <li>Settings</li>
@@ -25,7 +25,7 @@
 {% else %}
 <ul id="loggedOutNavbar">
     <li style="float:left"><a href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
-    <li><a href="https://vl2018-ryhm15.herokuapp.com/Meist">Meist</a></li>
+    <li><a href="https://vl2018-ryhm15.herokuapp.com/about">Meist</a></li>
     <li onclick="document.getElementById('login').style.display='none'; document.getElementById('signup').style.display='block'">Loo kasutaja</li>
     <li onclick="document.getElementById('signup').style.display='none'; document.getElementById('login').style.display='block'">Logi sisse</li>
 </ul>
