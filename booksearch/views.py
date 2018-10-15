@@ -5,7 +5,6 @@ from django.db import IntegrityError
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
-from django.db.models import Count
 import bcrypt
 
 salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'

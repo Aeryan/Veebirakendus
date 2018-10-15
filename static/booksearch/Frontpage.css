@@ -14,7 +14,9 @@ ul {
     border-radius: 5px;
 }
 
-ul.errorlist {display: none}
+ul.errorlist {
+    display: none
+}
 
 li {
     float: right;

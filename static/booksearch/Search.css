@@ -14,6 +14,10 @@ ul {
     border-radius: 5px;
 }
 
+ul.errorlist {
+    display: none;
+}
+
 li {
     float: right;
     border-right:1px solid #bbb;
@@ -67,19 +71,19 @@ li:hover:not(.active) {
     right: 1%;
 }
 
-table {
+.tulemused {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
     border: 1px solid #ddd;
 }
 
-th, td {
+.tulemus_d {
     text-align: left;
     padding: 16px;
 }
 
-tr:nth-child(even) {
+.tulemus_r:nth-child(even) {
     background-color: #e5e5e5;
 }
 

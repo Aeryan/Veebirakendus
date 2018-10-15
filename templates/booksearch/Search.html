@@ -11,21 +11,33 @@
     <script src="{% static 'booksearch/scripts.js' %}"></script>
 </head>
 <body>
-<!--Navigation bar-->
-<ul id="loggedOutNavbar">
+
+<!--Navigation bars-->
+<!-- Teine navbar, mis kuvatakse sisselogitud kasutajale -->
+{% if user.is_authenticated %}
+<ul id="loggedInNavbar">
     <li style="float:left"><a href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
+    <li><a href="https://vl2018-ryhm15.herokuapp.com/about">About</a></li>
+    <li>User: {{ user.get_username }}</li>
+    <li><a href="{% url 'signout' %}">Log out</a></li>
+    <li>Settings</li>
+</ul>
+{% else %}
+<ul id="loggedOutNavbar">
+    <li style="float:left"><a href="/">BOOKWORM</a></li>
     <li><a href="https://vl2018-ryhm15.herokuapp.com/about">About</a></li>
     <li onclick="document.getElementById('login').style.display='none'; document.getElementById('signup').style.display='block'">Sign up</li>
     <li onclick="document.getElementById('signup').style.display='none'; document.getElementById('login').style.display='block'">Log in</li>
 </ul>
+{% endif %}
 
 <div class="split left">
     <div class="centered">
         <h2>{{ tulemuste_sone }}</h2>
-        <table>
+        <table class="tulemused">
             {% for item in nimistik %}
-            <tr>
-                <td>{{ item.pealkiri }}</td>
+            <tr class="tulemus_r">
+                <td class="tulemus_d">{{ item.pealkiri }}</td>
             </tr>
             {% endfor %}
         </table>
@@ -46,7 +58,7 @@
 <!-- Login modal -->
 <div id="login" class="popup">
 
-    <form class="popup-content animate">
+    <form class="popup-content animate" method="post">{% csrf_token %}
         <div class="imgcontainer">
         <span onclick="document.getElementById('login').style.display='none'"
     class="sulge" title="Sulge">&times;</span>
@@ -60,11 +72,15 @@
             </label>
         </div>
 
+        <div align="center">
+            <a href="{% url 'social:begin' 'google-oauth2' %}"><img src="{% static 'booksearch/btn_google_signin_light_normal_web.png' %}"></a>
+        </div>
         <div class="container">
             <button type="button" onclick="document.getElementById('login').style.display='none'"
                     class="tühista">Tühista</button>
             <span class="parool"><a href="#">Unustasid parooli?</a> </span>
         </div>
+        <br>
     </form>
 </div>
 
@@ -89,6 +105,7 @@
         </div>
     </form>
 </div>
+
 <script src="{% static 'booksearch/scripts.js' %}"></script>
 </body>
 </html>
