@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d000f11c-7af1-46c2-9884-0d547f2d52e6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/static/booksearch/About.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/booksearch/About.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/booksearch/Frontpage.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/booksearch/Frontpage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/booksearch/Search.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/booksearch/Search.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/booksearch/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/booksearch/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/booksearch/About.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booksearch/About.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/booksearch/Frontpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booksearch/Frontpage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/booksearch/Search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booksearch/Search.html" afterDir="false" />
@@ -48,7 +46,7 @@
           <entry key="html" value="11" />
           <entry key="js" value="2" />
           <entry key="lock" value="1" />
-          <entry key="py" value="22" />
+          <entry key="py" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -57,7 +55,7 @@
           <entry key="HTML" value="11" />
           <entry key="JavaScript" value="2" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="22" />
+          <entry key="Python" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -65,7 +63,7 @@
           <entry key="css" value="154" />
           <entry key="html" value="765" />
           <entry key="js" value="39" />
-          <entry key="py" value="1192" />
+          <entry key="py" value="1198" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -73,18 +71,18 @@
           <entry key="CSS" value="154" />
           <entry key="HTML" value="765" />
           <entry key="JavaScript" value="39" />
-          <entry key="Python" value="1192" />
+          <entry key="Python" value="1198" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/booksearch/Frontpage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="65" column="185" selection-start-line="65" selection-start-column="185" selection-end-line="65" selection-end-column="185" />
+            <state relative-caret-position="407">
+              <caret line="27" column="65" selection-start-line="27" selection-start-column="65" selection-end-line="27" selection-end-column="65" />
               <folding>
                 <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#0;n#ul#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -96,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/booksearch/About.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="64" selection-start-line="64" selection-end-line="64" />
+            <state relative-caret-position="220">
+              <caret line="43" column="136" selection-start-line="43" selection-start-column="136" selection-end-line="43" selection-end-column="136" />
               <folding>
                 <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#0;n#ul#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -106,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/booksearch/Search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="74" selection-start-line="74" selection-end-line="74" />
+            <state relative-caret-position="-654">
+              <caret line="29" column="136" selection-start-line="29" selection-start-column="136" selection-end-line="29" selection-end-column="136" />
               <folding>
                 <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#0;n#ul#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -128,7 +126,29 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/booksearch/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="81" selection-start-line="20" selection-start-column="81" selection-end-line="20" selection-end-column="81" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>otsi</find>
+      <find>About</find>
+      <find>Log in</find>
+      <find>Sign up</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>Meist</replace>
+      <replace>Logi sisse</replace>
+      <replace>Registreeri</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -136,17 +156,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/booksearch/forms.py" />
         <option value="$PROJECT_DIR$/static/booksearch/scripts.js" />
         <option value="$PROJECT_DIR$/booksearch/models.py" />
         <option value="$PROJECT_DIR$/booksearch/urls.py" />
         <option value="$PROJECT_DIR$/Veebirakendus/settings.py" />
         <option value="$PROJECT_DIR$/static/booksearch/Search.css" />
         <option value="$PROJECT_DIR$/booksearch/views.py" />
-        <option value="$PROJECT_DIR$/templates/booksearch/Search.html" />
         <option value="$PROJECT_DIR$/static/booksearch/Frontpage.css" />
-        <option value="$PROJECT_DIR$/templates/booksearch/About.html" />
+        <option value="$PROJECT_DIR$/booksearch/forms.py" />
         <option value="$PROJECT_DIR$/templates/booksearch/Frontpage.html" />
+        <option value="$PROJECT_DIR$/templates/booksearch/About.html" />
+        <option value="$PROJECT_DIR$/templates/booksearch/Search.html" />
       </list>
     </option>
   </component>
@@ -156,10 +176,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="4">
     <option name="x" value="67" />
     <option name="y" value="25" />
-    <option name="width" value="927" />
+    <option name="width" value="928" />
     <option name="height" value="1055" />
   </component>
   <component name="ProjectView">
@@ -243,10 +263,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="67" y="25" width="928" height="1055" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23741007" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26077098" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
@@ -321,13 +341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/booksearch/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Veebirakendus/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="839">
@@ -342,10 +355,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/booksearch/Search.html">
+    <entry file="file://$PROJECT_DIR$/booksearch/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
+        <state relative-caret-position="340">
+          <caret line="20" column="81" selection-start-line="20" selection-start-column="81" selection-end-line="20" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/booksearch/Frontpage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="27" column="65" selection-start-line="27" selection-start-column="65" selection-end-line="27" selection-end-column="65" />
           <folding>
             <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#ul#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -362,8 +382,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/booksearch/About.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="220">
+          <caret line="43" column="136" selection-start-line="43" selection-start-column="136" selection-end-line="43" selection-end-column="136" />
           <folding>
             <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#ul#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -371,10 +391,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/booksearch/Frontpage.html">
+    <entry file="file://$PROJECT_DIR$/templates/booksearch/Search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="65" column="185" selection-start-line="65" selection-start-column="185" selection-end-line="65" selection-end-column="185" />
+        <state relative-caret-position="-654">
+          <caret line="29" column="136" selection-start-line="29" selection-start-column="136" selection-end-line="29" selection-end-column="136" />
           <folding>
             <element signature="n#style#0;n#li#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#ul#1;n#body#0;n#html#0;n#!!top" expanded="true" />

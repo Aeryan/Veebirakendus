@@ -18,5 +18,5 @@ class Signup(forms.Form):
 
 class Search(forms.Form):
     otsing = forms.CharField(label='Otsing', max_length=50,
-                             widget=forms.TextInput(attrs={'placeholder': 'Kirjuta siia, mida soovid otsida',
+                             widget=forms.TextInput(attrs={'placeholder': 'Otsing',
                                                            'class': 'searchfield'}))
