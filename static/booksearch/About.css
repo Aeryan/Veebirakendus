@@ -58,4 +58,5 @@ li:hover:not(.active) {
 
 .center {
     margin:auto;
+    align-content: center;
 }
