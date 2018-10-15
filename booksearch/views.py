@@ -11,7 +11,9 @@ salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
 
 
 def about(request):
-    return render(request, 'booksearch/About.html')
+    loginform = Login
+    signupform = Signup
+    return render(request, 'booksearch/About.html', {'loginform': loginform, 'signupform': signupform})
 
 
 '''
