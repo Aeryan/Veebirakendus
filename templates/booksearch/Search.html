@@ -35,7 +35,7 @@
 <div class="split left">
     <div class="centered">
         <h2>{{ tulemuste_sone }}</h2>
-        <table class="tulemused">
+        <table id="table" class="tulemused">
             {% for item in nimistik %}
             <tr class="tulemus_r">
                 <td class="tulemus_d">{{ item.pealkiri }}</td>
@@ -50,11 +50,22 @@
 </div>
 
 <div class="split right">
-    <div class="centered">
+    <div id="parem" class="centered">
         <h2>Javascriptiga (või Djangoga?) rohkem infot raamatu kohta...</h2>
         <p>Või äkki jätame selle osa üldse ära? Ehk lihtsalt üks leht (mitte kaheks jagatud)?</p>
     </div>
 </div>
+	
+<script type="text/javascript">
+    var table = document.getElementById('table');
+    var parem = document.getElementById('parem');
+
+    for (var i = 0; i < table.rows.length; i++) {
+        table.rows[i].onclick = function() {
+            parem.innerHTML = "Selle raamatu nimi on" + this.cells[0].innerHTML;
+        }
+    }
+</script>	
 
 <!-- Login modal -->
 <div id="login" class="popup">
