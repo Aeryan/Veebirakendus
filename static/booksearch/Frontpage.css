@@ -188,6 +188,6 @@ span.parool {
     cursor: pointer;
 }
 
-#googleauth {
-    align-content: center;
+.center {
+    margin:auto;
 }

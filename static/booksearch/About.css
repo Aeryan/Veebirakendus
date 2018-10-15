@@ -56,6 +56,6 @@ li:hover:not(.active) {
     width: 100%;
 }
 
-#googleauth {
-    align-content: center;
+.center {
+    margin:auto;
 }
