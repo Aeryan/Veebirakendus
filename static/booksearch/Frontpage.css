@@ -71,6 +71,11 @@ li:hover:not(.active) {
     color: #00B4CC;
 }
 
+.searchfield {
+    width: 100%;
+    position: relative;
+}
+
 #searchButton {
     position: absolute;
     top: 25%;
@@ -105,6 +110,7 @@ input[type=text], input[type="password"] {
 
 #otsinguvorm {
     columns: 2;
+    width: 101%;
 }
 
 #loginButton {
