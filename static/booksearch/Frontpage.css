@@ -189,5 +189,6 @@ span.parool {
 }
 
 #googleauth {
-    alignment: center;
+    margin-left: auto;
+    margin-right: auto;
 }
