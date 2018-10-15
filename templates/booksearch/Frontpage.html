@@ -4,18 +4,16 @@
 <head>
     <meta charset="UTF-8">
 	<meta name="description" content="Raamatu otsingumootor Bookworm, arendatud Tartu Ülikooli aine Veebirakenduste loomise raames Rühm15 poolt">
-	<meta name="keyowrds" content="raamatu otsing,otsi raamatuid,raamat,otsi,bookworm,raamatu otsingumootor"> 
+	<meta name="keyowrds" content="raamatu otsing,otsi raamatuid,raamat,otsi,bookworm,raamatu otsingumootor">
     <title>Bookworm</title>
     <link rel="stylesheet" type="text/css" href="{% static 'booksearch/Frontpage.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<script src="{% static 'booksearch/scripts.js' %}"></script>
-    <!--<link rel="script" href="{% static 'booksearch/scripts.js' %}"> -->
 </head>
 <body>
 
 <!--Navigation bars-->
 <!-- Teine navbar, mis kuvatakse sisselogitud kasutajale -->
-
 {% if user.is_authenticated %}
 <ul id="loggedInNavbar">
     <li style="float:left"><a href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
@@ -32,6 +30,7 @@
     <li onclick="document.getElementById('signup').style.display='none'; document.getElementById('login').style.display='block'">Log in</li>
 </ul>
 {% endif %}
+
 <!--Search box-->
 <div class="wrap">
     <form method="post">{% csrf_token %}
@@ -63,11 +62,15 @@
             </label>
         </div>
 
+        <div align="center">
+            <a href="{% url 'social:begin' 'google-oauth2' %}"><img src="{% static 'booksearch/btn_google_signin_light_normal_web.png' %}"></a>
+        </div>
         <div class="container">
             <button type="button" onclick="document.getElementById('login').style.display='none'"
                     class="tühista">Tühista</button>
             <span class="parool"><a href="#">Unustasid parooli?</a> </span>
         </div>
+        <br>
     </form>
 </div>
 
@@ -92,6 +95,7 @@
         </div>
     </form>
 </div>
+
 <script src="{% static 'booksearch/scripts.js' %}"></script>
 </body>
 </html>
