@@ -7,7 +7,7 @@ from . import views
 
 urlpatterns = [
     url(r'^about/$', views.about),
-    # path('/search', views.search),
+    path('mylists', views.mylists, name='mylists'),
     path('signout', views.signout, name='signout'),
     url(r'^auth/', include('social_django.urls', namespace='social')),
     path('', views.index, name='index')

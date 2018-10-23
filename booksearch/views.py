@@ -28,6 +28,13 @@ def signout(request):
     return HttpResponseRedirect('/')
 
 
+def mylists(request):
+    if request.method == 'GET':
+        return HttpResponseRedirect('/')
+    else:
+        return render(request, 'booksearch/MyLists.html')
+
+
 def index(request):
 
     if request.method == 'POST':
@@ -42,7 +49,7 @@ def index(request):
             if user is not None:
                 login(request, user)
                 return render(request, 'booksearch/Frontpage.html', {'loginform': loginform, 'signupform': signupform,
-                                                                     'search': search, 'user':user})
+                                                                     'search': search, 'user': user})
         if signupform.is_valid():
             signup_name = signupform.cleaned_data['signup_k_nimi']
             signup_password = bcrypt.hashpw(signupform.cleaned_data['signup_parool'].encode(), salt).decode()
