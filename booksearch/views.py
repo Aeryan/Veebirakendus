@@ -1,6 +1,6 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .forms import Login, Signup, Search
-from .models import raamatud
+from .models import raamatud, likes, owned
 from django.db import IntegrityError, connection
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate, logout
@@ -32,7 +32,8 @@ def mylists(request):
     if request.method == 'GET':
         return HttpResponseRedirect('/')
     else:
-        return render(request, 'booksearch/MyLists.html')
+        olemas = raamatud.objects.filter(owned__usr=request.user.id)
+        return render(request, 'booksearch/MyLists.html', {'olemas': olemas})
 
 
 def index(request):
@@ -49,7 +50,7 @@ def index(request):
             if user is not None:
                 login(request, user)
                 return render(request, 'booksearch/Frontpage.html', {'loginform': loginform, 'signupform': signupform,
-                                                                     'search': search, 'user': user})
+                                                                     'search': search})
         if signupform.is_valid():
             signup_name = signupform.cleaned_data['signup_k_nimi']
             signup_password = bcrypt.hashpw(signupform.cleaned_data['signup_parool'].encode(), salt).decode()
