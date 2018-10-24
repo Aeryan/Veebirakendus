@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from .forms import Login, Signup, Search
-from .models import raamatud, likes, owned
+from .models import raamatud, liked, owned
 from django.db import IntegrityError, connection
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate, logout
