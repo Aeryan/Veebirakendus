@@ -86,14 +86,16 @@ li:hover:not(.active) {
 .tulemus_r:nth-child(even) {
     background-color: #e5e5e5;
 }
-
 .footer {
     width: 48%;
     position: fixed;
-    z-index: 1;
+    background-color: #f2f2f2;
+    z-index: 10;
     left: 1%;
     bottom: 0.5%;
-    height: 5%;
+    height: 2em;
+    line-height: 2em;
+    border: 0.1em dashed #f2f2f2;
     text-align: center;
 }
 
