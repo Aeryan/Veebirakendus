@@ -58,16 +58,17 @@
         <h2>Javascriptiga (või Djangoga?) rohkem infot raamatu kohta...</h2>
         <p>Või äkki jätame selle osa üldse ära? Ehk lihtsalt üks leht (mitte kaheks jagatud)?</p>
     </div>
+    {% if user.is_authenticated %}
     <form id="ownedForm" method="post"> {% csrf_token %}
         <table id="ownedTable">{{ addOwned }}</table>
         <button type="submit" id="ownedButton">Mul on see raamat!</button>
     </form>
+    {% endif %}
 </div>
 	
 <script type="text/javascript">
     var table = document.getElementById('table');
     var parem = document.getElementById('parem');
-    var valik;
 
     for (var i = 0; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
@@ -89,7 +90,7 @@
         </div>
 
         <div class="container">
-            <table>{{ loginform }}</table>
+            {{ loginform.as_p }}
             <button type="submit" id="loginButton">Logi sisse</button>
             <label for="kast1">
                 <input id="kast1" type="checkbox" checked="checked" name="mäleta">Mäleta mind
@@ -120,7 +121,7 @@
         </div>
 
         <div class="container">
-            <table>{{ signupform }}</table>
+            {{ signupform.as_p }}
             <button type="submit" id="signupButton">Loo kasutaja</button>
         </div>
 

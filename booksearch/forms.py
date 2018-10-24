@@ -23,5 +23,5 @@ class Search(forms.Form):
 
 
 class AddOwned(forms.Form):
-    raamatu_pealkiri = forms.CharField(label='Pealkiri', max_length=50, required=False,
-                                       widget=forms.TextInput(attrs={'id': 'addOwnedField'}))
+    raamatu_pealkiri = forms.CharField(label='Pealkiri', max_length=50,
+                                       widget=forms.HiddenInput(attrs={'id': 'addOwnedField'}))

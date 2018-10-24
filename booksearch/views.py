@@ -5,7 +5,7 @@ from django.db import IntegrityError, connection
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
-from django.core.cache import cache
+from django.contrib import messages
 import bcrypt
 
 salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
@@ -20,7 +20,7 @@ def about(request):
 def search(request):
     loginform = Login(None or request.POST)
     signupform = Signup(None or request.POST)
-    addOwned = AddOwned()
+    addOwned = AddOwned(None or request.POST)
 
     if loginform.is_valid():
         login_name = loginform.cleaned_data['login_k_nimi']
@@ -29,6 +29,7 @@ def search(request):
         if user is not None:
             login(request, user)
             return HttpResponseRedirect('')
+
     if signupform.is_valid():
         signup_name = signupform.cleaned_data['signup_k_nimi']
         signup_password = bcrypt.hashpw(signupform.cleaned_data['signup_parool'].encode(), salt).decode()
@@ -40,26 +41,27 @@ def search(request):
         return HttpResponseRedirect('')
 
     if addOwned.is_valid():
-        return HttpResponse('mv')
-        omatud = owned(usr=request.user.id, book_id=2, comment="jee?")
+        pealkiri = addOwned.cleaned_data['raamatu_pealkiri']
+        raamat = raamatud.objects.get(pealkiri=pealkiri)
+        omatud = owned(usr=request.user.id, book_id=raamat.id, comment="")
         omatud.save()
+    messages.error(request, addOwned.errors)
 
+    sisend = request.session.get('sisend')
+    if sisend is None:
+        return HttpResponseRedirect('/')
+    tulem = raamatud.objects.filter(pealkiri__icontains=sisend)
+    cursor = connection.cursor()
+    cursor.execute("SELECT count(*) FROM booksearch_raamatud WHERE pealkiri ILIKE '%" + sisend + "%'")
+    arv = cursor.fetchone()[0]
+
+    if arv == 1:
+        sone = 'Leiti 1 tulemus'
     else:
-        sisend = request.session.get('sisend')
-        if sisend is None:
-            return HttpResponseRedirect('/')
-        tulem = raamatud.objects.filter(pealkiri__icontains=sisend)
-        cursor = connection.cursor()
-        cursor.execute("SELECT count(*) FROM booksearch_raamatud WHERE pealkiri ILIKE '%" + sisend + "%'")
-        arv = cursor.fetchone()[0]
-
-        if arv == 1:
-            sone = 'Leiti 1 tulemus'
-        else:
-            sone = 'Leiti ' + str(arv) + ' tulemust'
-        return render(request, 'booksearch/Search.html',
-                      {'nimistik': tulem, 'loginform': loginform,
-                       "signupform": signupform, 'tulemuste_sone': sone, 'addOwned': AddOwned})
+        sone = 'Leiti ' + str(arv) + ' tulemust'
+    return render(request, 'booksearch/Search.html',
+                  {'nimistik': tulem, 'loginform': loginform,
+                   "signupform": signupform, 'tulemuste_sone': sone, 'addOwned': AddOwned})
 
 
 def signout(request):
