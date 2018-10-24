@@ -1,5 +1,5 @@
-from django.http import HttpResponseRedirect, HttpResponse
-from .forms import Login, Signup, Search
+from django.http import HttpResponseRedirect
+from .forms import Login, Signup, Search, AddOwned
 from .models import raamatud
 from django.db import IntegrityError, connection
 from django.shortcuts import render, redirect
@@ -40,11 +40,18 @@ def search(request):
         return HttpResponseRedirect('')
 
     else:
-        tulem = cache.get('tulem')
-        sone = cache.get('sone')
-        cache.clear()
-        if tulem is None or sone is None:
+        sisend = request.session.get('sisend')
+        if sisend is None:
             return HttpResponseRedirect('/')
+        tulem = raamatud.objects.filter(pealkiri__icontains=sisend)
+        cursor = connection.cursor()
+        cursor.execute("SELECT count(*) FROM booksearch_raamatud WHERE pealkiri ILIKE '%" + sisend + "%'")
+        arv = cursor.fetchone()[0]
+
+        if arv == 1:
+            sone = 'Leiti 1 tulemus'
+        else:
+            sone = 'Leiti ' + str(arv) + ' tulemust'
         return render(request, 'booksearch/Search.html',
                       {'nimistik': tulem, 'loginform': loginform,
                        "signupform": signupform, 'tulemuste_sone': sone})
@@ -90,22 +97,7 @@ def index(request):
             return HttpResponseRedirect('')
 
         if search.is_valid():
-            sisend = search.cleaned_data['otsing']
-            tulem = raamatud.objects.filter(pealkiri__icontains=sisend)
-            cursor = connection.cursor()
-            cursor.execute("SELECT count(*) FROM booksearch_raamatud WHERE pealkiri ILIKE '%" + sisend + "%'")
-            arv = cursor.fetchone()[0]
-
-            if arv == 1:
-                sone = 'Leiti 1 tulemus'
-            else:
-                sone = 'Leiti ' + str(arv) + ' tulemust'
-            # return HttpResponse(tulem)
-            cache.set('tulem', tulem)
-            cache.set('sone', sone)
-            # request.session['sone'] = sone
-            xtulem = cache.get('tulem')
-            # xsone = request.session.get('sone')
+            request.session['sisend'] = search.cleaned_data['otsing']
             return redirect('search')
 
     else:
