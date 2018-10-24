@@ -1,5 +1,4 @@
 from django import forms
-from django.forms import HiddenInput
 
 
 class Login(forms.Form):
@@ -23,6 +22,6 @@ class Search(forms.Form):
                                                            'class': 'searchfield'}))
 
 
-class AddOwned(forms.ModelForm):
-    class Meta:
-        widgets = {'any_field': HiddenInput(), }
+class AddOwned(forms.Form):
+    raamatu_pealkiri = forms.CharField(label='Pealkiri', max_length=50, required=False,
+                                       widget=forms.TextInput(attrs={'id': 'addOwnedField'}))

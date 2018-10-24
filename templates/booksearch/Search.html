@@ -58,15 +58,23 @@
         <h2>Javascriptiga (või Djangoga?) rohkem infot raamatu kohta...</h2>
         <p>Või äkki jätame selle osa üldse ära? Ehk lihtsalt üks leht (mitte kaheks jagatud)?</p>
     </div>
+    <form id="ownedForm" method="post"> {% csrf_token %}
+        <table id="ownedTable">{{ addOwned }}</table>
+        <button type="submit" id="ownedButton">Mul on see raamat!</button>
+    </form>
 </div>
 	
 <script type="text/javascript">
     var table = document.getElementById('table');
     var parem = document.getElementById('parem');
+    var valik;
 
     for (var i = 0; i < table.rows.length; i++) {
         table.rows[i].onclick = function() {
-            parem.innerHTML = "Selle raamatu pealkiri on \"" + this.cells[0].innerHTML + "\".";
+            var valik = this.cells[0].innerHTML;
+            parem.innerHTML = "Selle raamatu pealkiri on \"" + valik + "\".";
+            document.getElementById('ownedForm').style.display='block';
+            document.getElementById('addOwnedField').value=valik;
         }
     }
 </script>	

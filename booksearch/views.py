@@ -1,6 +1,6 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .forms import Login, Signup, Search, AddOwned
-from .models import raamatud
+from .models import raamatud, owned
 from django.db import IntegrityError, connection
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
@@ -20,6 +20,7 @@ def about(request):
 def search(request):
     loginform = Login(None or request.POST)
     signupform = Signup(None or request.POST)
+    addOwned = AddOwned()
 
     if loginform.is_valid():
         login_name = loginform.cleaned_data['login_k_nimi']
@@ -27,8 +28,7 @@ def search(request):
         user = authenticate(request, username=login_name, password=login_password)
         if user is not None:
             login(request, user)
-            return render(request, 'booksearch/Frontpage.html', {'loginform': loginform, 'signupform': signupform,
-                                                                 'search': search})
+            return HttpResponseRedirect('')
     if signupform.is_valid():
         signup_name = signupform.cleaned_data['signup_k_nimi']
         signup_password = bcrypt.hashpw(signupform.cleaned_data['signup_parool'].encode(), salt).decode()
@@ -36,8 +36,13 @@ def search(request):
         try:
             user.save()
         except IntegrityError:
-            return HttpResponseRedirect('')
+            return HttpResponseRedirect('/')
         return HttpResponseRedirect('')
+
+    if addOwned.is_valid():
+        return HttpResponse('mv')
+        omatud = owned(usr=request.user.id, book_id=2, comment="jee?")
+        omatud.save()
 
     else:
         sisend = request.session.get('sisend')
@@ -54,12 +59,14 @@ def search(request):
             sone = 'Leiti ' + str(arv) + ' tulemust'
         return render(request, 'booksearch/Search.html',
                       {'nimistik': tulem, 'loginform': loginform,
-                       "signupform": signupform, 'tulemuste_sone': sone})
+                       "signupform": signupform, 'tulemuste_sone': sone, 'addOwned': AddOwned})
 
 
 def signout(request):
+    sisend = request.session.get('sisend')
     logout(request)
-    return HttpResponseRedirect('/')
+    request.session['sisend'] = sisend
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 def mylists(request):

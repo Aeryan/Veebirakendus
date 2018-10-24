@@ -49,6 +49,11 @@ li:hover:not(.active) {
 }
 
 
+
+#ownedForm {
+    display: none;
+}
+
 /* Split the screen in half */
 .split {
     width: 48%;
