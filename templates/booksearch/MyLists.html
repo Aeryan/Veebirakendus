@@ -37,15 +37,26 @@
 <!--Own/Want bar-->
 <div class="upper">
     <ul>
-        <li class="active">OWN</li>
-        <li>WANT</li>
+        <li class="active" id="ownbutton" onclick="document.getElementById('ownbutton').classList.add('active');
+        document.getElementById('wantbutton').classList.remove('active');document.getElementById('want').style.display='none';
+        document.getElementById('own').style.display='block'">OWN</li>
+        <li id="wantbutton" onclick="document.getElementById('wantbutton').classList.add('active');
+        document.getElementById('ownbutton').classList.remove('active');document.getElementById('own').style.display='none';
+        document.getElementById('want').style.display='block'">WANT</li>
     </ul>
 </div>
 
 <div class="split left">
     <div class="centered">
-        <table>
+        <table id="own">
             {% for item in olemas %}
+            <tr>
+                <td>{{ item.pealkiri }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table id="want">
+            {% for item in soovid %}
             <tr>
                 <td>{{ item.pealkiri }}</td>
             </tr>

@@ -153,3 +153,7 @@ tr:nth-child(even) {
     background-color: #00B4CC;
     height: 100%;
 }
+
+#want {
+    display: none;
+}

@@ -1,6 +1,6 @@
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from .forms import Login, Signup, Search
-from .models import raamatud, liked, owned
+from .models import raamatud
 from django.db import IntegrityError, connection
 from django.shortcuts import render
 from django.contrib.auth import login, authenticate, logout
@@ -32,8 +32,9 @@ def mylists(request):
     if request.method == 'GET':
         return HttpResponseRedirect('/')
     else:
+        soovid = raamatud.objects.filter(liked__usr=request.user.id)
         olemas = raamatud.objects.filter(owned__usr=request.user.id)
-        return render(request, 'booksearch/MyLists.html', {'olemas': olemas})
+        return render(request, 'booksearch/MyLists.html', {'olemas': olemas, 'soovid': soovid})
 
 
 def index(request):
