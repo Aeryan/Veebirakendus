@@ -59,7 +59,7 @@
         </div>
 
         <div class="container">
-            <table>{{ loginform }}</table>
+            {{ loginform.as_p }}
             <button type="submit" id="loginButton">Logi sisse</button>
             <label for="kast1">
                 <input id="kast1" type="checkbox" checked="checked" name="mäleta">Mäleta mind
@@ -89,7 +89,7 @@
         </div>
 
         <div class="container">
-            <table>{{ signupform }}</table>
+            {{ signupform.as_p }}
             <button type="submit" id="signupButton">Loo kasutaja</button>
         </div>
 
