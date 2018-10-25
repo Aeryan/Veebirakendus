@@ -30,3 +30,8 @@ class AddOwned(forms.Form):
 class AddWanted(forms.Form):
     tahetu_pealkiri = forms.CharField(label='Tahetu pealkiri', max_length=50, required=True,
                                       widget=forms.HiddenInput(attrs={'id': 'wantedField'}))
+
+
+class RemoveWanted(forms.Form):
+    tahtmatu_pealkiri = forms.CharField(label='Tahtmatu pealkiri', max_length=50, required=True,
+                                        widget=forms.HiddenInput(attrs={'id': 'wantedField'}))

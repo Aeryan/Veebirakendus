@@ -145,7 +145,7 @@ tr:nth-child(even) {
 }
 
 .upper li:hover:not(.active) {
-    background-color: #00B4CC;
+    background-color: #0004CC;
     height: 100%;
 }
 
@@ -154,6 +154,14 @@ tr:nth-child(even) {
     height: 100%;
 }
 
-#want {
+#wanttable {
+    display: none;
+}
+
+#rmWantedForm {
+    display: none;
+}
+
+#rmWantedTable {
     display: none;
 }

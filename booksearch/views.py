@@ -1,5 +1,5 @@
-from django.http import HttpResponseRedirect, HttpResponse
-from .forms import Login, Signup, Search, AddOwned, AddWanted
+from django.http import HttpResponseRedirect
+from .forms import Login, Signup, Search, AddOwned, AddWanted, RemoveWanted
 from .models import raamatud, owned, wanted
 from django.db import IntegrityError, connection
 from django.shortcuts import render, redirect
@@ -109,9 +109,22 @@ def mylists(request):
     if request.method == 'GET':
         return HttpResponseRedirect('/')
     else:
+        rmwantedform = RemoveWanted(None or request.POST)
         soovid = raamatud.objects.filter(wanted__usr=request.user.id)
         olemas = raamatud.objects.filter(owned__usr=request.user.id)
-        return render(request, 'booksearch/MyLists.html', {'olemas': olemas, 'soovid': soovid})
+
+        if rmwantedform.is_valid():
+            tahtmatu_pealkiri = rmwantedform.cleaned_data['tahtmatu_pealkiri']
+            raamat = raamatud.objects.get(pealkiri=tahtmatu_pealkiri)
+            tahetud = wanted.objects.get(usr=request.user.id, book_id=raamat.id)
+            try:
+                tahetud.delete()
+                HttpResponseRedirect('')
+            except IntegrityError:
+                HttpResponseRedirect('')
+
+        return render(request, 'booksearch/MyLists.html', {'olemas': olemas, 'soovid': soovid,
+                                                           'rmwantedform': rmwantedform})
 
 
 def index(request):

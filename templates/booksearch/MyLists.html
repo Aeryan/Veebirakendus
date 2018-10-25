@@ -28,24 +28,26 @@
 <div class="upper">
     <ul>
         <li class="active" id="ownbutton" onclick="document.getElementById('ownbutton').classList.add('active');
-        document.getElementById('wantbutton').classList.remove('active');document.getElementById('want').style.display='none';
-        document.getElementById('own').style.display='block'">OWN</li>
+        document.getElementById('wantbutton').classList.remove('active');
+        document.getElementById('wanttable').style.display='none';
+        document.getElementById('owntable').style.display='block'">OWN</li>
         <li id="wantbutton" onclick="document.getElementById('wantbutton').classList.add('active');
-        document.getElementById('ownbutton').classList.remove('active');document.getElementById('own').style.display='none';
-        document.getElementById('want').style.display='block'">WANT</li>
+        document.getElementById('ownbutton').classList.remove('active');
+        document.getElementById('owntable').style.display='none';
+        document.getElementById('wanttable').style.display='block'">WANT</li>
     </ul>
 </div>
 
 <div class="split left">
     <div class="centered">
-        <table id="own">
+        <table id="owntable">
             {% for item in olemas %}
             <tr>
                 <td>{{ item.pealkiri }}</td>
             </tr>
             {% endfor %}
         </table>
-        <table id="want">
+        <table id="wanttable">
             {% for item in soovid %}
             <tr>
                 <td>{{ item.pealkiri }}</td>
@@ -56,11 +58,39 @@
 </div>
 
 <div class="split right">
-    <div class="centered">
+    <div class="centered" id="parem">
         <h2>Javascriptiga (või Djangoga?) rohkem infot raamatu kohta...</h2>
         <p>Või äkki jätame selle osa üldse ära? Ehk lihtsalt üks leht (mitte kaheks jagatud)?</p>
     </div>
+    <form class="invisForm" id="rmWantedForm" method="post"> {% csrf_token %}
+        <table id="rmWantedTable">{{ rmwantedform }}</table>
+        <button type="submit" id="rmWantedButton" onclick="fillWanted();
+        document.getElementById('rmWantedForm').style.display='none';">Ma ei taha seda raamatut!</button>
+    </form>
 </div>
+
+<script type="text/javascript">
+    var owntable = document.getElementById('owntable');
+    var wanttable = document.getElementById('wanttable');
+    var parem = document.getElementById('parem');
+    var valik;
+
+    for (var i = 0; i < owntable.rows.length; i++) {
+        owntable.rows[i].onclick = function() {
+            valik = this.cells[0].innerHTML;
+            parem.innerHTML = "Selle raamatu pealkiri on \"" + valik + "\".";
+            document.getElementById('rmWantedForm').style.display='none';
+        }
+    }
+
+    for (var i = 0; i < wanttable.rows.length; i++) {
+        wanttable.rows[i].onclick = function() {
+            valik = this.cells[0].innerHTML;
+            parem.innerHTML = "Selle raamatu pealkiri on \"" + valik + "\".";
+            document.getElementById('rmWantedForm').style.display='block';
+        }
+    }
+</script>
 
 <div class="footer">
     <span id="footerspan">Siia tuleb Advanced Search...</span>

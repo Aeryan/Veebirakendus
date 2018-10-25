@@ -73,3 +73,13 @@ function initMap() {
     var marker = new google.maps.Marker({position: liivi, map: map});
     // marker.addListener(function() {infowindow.open(map, marker);});
 }
+
+function fillOwned() {
+    document.getElementById('ownedField').value=valik;
+    document.getElementById('wantedField').value= "";
+}
+
+function fillWanted() {
+    document.getElementById('wantedField').value=valik;
+    document.getElementById('ownedField').value="";
+}
