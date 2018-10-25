@@ -72,4 +72,4 @@ function initMap() {
     //var infowindow = new google.maps.InfoWindow({content: tekst});
     var marker = new google.maps.Marker({position: liivi, map: map});
     // marker.addListener(function() {infowindow.open(map, marker);});
-};
+}

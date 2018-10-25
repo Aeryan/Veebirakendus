@@ -9,3 +9,16 @@ class raamatud(models.Model):
     lehekülgi = models.IntegerField
     keel = models.CharField(max_length=10)
 
+
+class wanted(models.Model):
+    id = models.AutoField(primary_key=True)
+    usr = models.IntegerField(primary_key=True, default=0)
+    book = models.ForeignKey(raamatud, to_field='id', on_delete=models.CASCADE, default=0)
+    comment = models.CharField(max_length=300)
+
+
+class owned(models.Model):
+    id = models.AutoField(primary_key=True)
+    usr = models.IntegerField(default=0)
+    book = models.ForeignKey(raamatud, to_field='id', on_delete=models.CASCADE)
+    comment = models.CharField(max_length=300)

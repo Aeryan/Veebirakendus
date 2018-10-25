@@ -20,3 +20,13 @@ class Search(forms.Form):
     otsing = forms.CharField(label='Otsing', max_length=50,
                              widget=forms.TextInput(attrs={'placeholder': 'Otsing',
                                                            'class': 'searchfield'}))
+
+
+class AddOwned(forms.Form):
+    omatu_pealkiri = forms.CharField(label='Olemasoleva pealkiri', max_length=50, required=True,
+                                     widget=forms.HiddenInput(attrs={'id': 'ownedField'}))
+
+
+class AddWanted(forms.Form):
+    tahetu_pealkiri = forms.CharField(label='Tahetu pealkiri', max_length=50, required=True,
+                                      widget=forms.HiddenInput(attrs={'id': 'wantedField'}))

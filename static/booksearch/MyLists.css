@@ -57,14 +57,14 @@ li:hover:not(.active) {
 /* Control the left side */
 .left {
     top: 125px;
-    height: 74%;
+    bottom: 3em;
     left: 1%;
 }
 
 /* Control the right side */
 .right {
     top: 60px;
-    height: 90%;
+    height: 10em;
     right: 1%;
 }
 
@@ -87,11 +87,20 @@ tr:nth-child(even) {
 .footer {
     width: 48%;
     position: fixed;
-    z-index: 1;
+    background-color: #f2f2f2;
+    z-index: 10;
     left: 1%;
     bottom: 0.5%;
-    height: 5%;
+    height: 2em;
+    line-height: 2em;
+    border: 0.1em dashed #f2f2f2;
     text-align: center;
+}
+
+#footerspan {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
 }
 
 .upper {
@@ -100,7 +109,7 @@ tr:nth-child(even) {
     position: fixed;
     z-index: 1;
     left: 1%;
-    height: 8%;
+    height: 4em;
     text-align: center;
 }
 
@@ -143,4 +152,8 @@ tr:nth-child(even) {
 .upper .active {
     background-color: #00B4CC;
     height: 100%;
+}
+
+#want {
+    display: none;
 }

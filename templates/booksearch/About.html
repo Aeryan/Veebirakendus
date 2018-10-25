@@ -32,8 +32,12 @@
 {% if user.is_authenticated %}
 <ul id="loggedInNavbar">
     <li style="float:left"><a href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
-    <li><a href="https://vl2018-ryhm15.herokuapp.com/about">About</a></li>
-    <li>Kasutaja: {{ user.get_username }}</li>
+    <li><a href="https://vl2018-ryhm15.herokuapp.com/about">Meist</a></li>
+    <li>
+        <form action="{% url 'mylists' %}" method="post"> {% csrf_token %}
+            <a href="javascript:;" onclick="parentNode.submit();">Minu nimekirjad</a>
+        </form>
+    </li>
     <li><a href="{% url 'signout' %}">Logi välja</a></li>
     <li>Seaded</li>
 </ul>
@@ -56,7 +60,7 @@
         </div>
 
         <div class="container">
-            <table>{{ loginform }}</table>
+            {{ loginform.as_p }}
             <button type="submit" id="loginButton">Logi sisse</button>
             <label for="kast1">
                 <input id="kast1" type="checkbox" checked="checked" name="mäleta">Mäleta mind
@@ -86,7 +90,7 @@
         </div>
 
         <div class="container">
-            <table>{{ signupform }}</table>
+            {{ signupform.as_p }}
             <button type="submit" id="signupButton">Loo kasutaja</button>
         </div>
 
