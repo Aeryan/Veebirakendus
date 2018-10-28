@@ -43,6 +43,7 @@ def about(request):
                                                      'ip': ip, 'browser': browser, 'time': time, 'os': os})
 
 
+
 def search(request):
     loginform = Login(None or request.POST)
     signupform = Signup(None or request.POST)
