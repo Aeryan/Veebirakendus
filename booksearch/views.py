@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.contrib.gis.geoip2 import GeoIP2
+from geoip2.errors import AddressNotFoundError
 import bcrypt
 
 salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
@@ -17,6 +18,10 @@ def about(request):
 
     g = GeoIP2()
 
+    try:
+        country = g.country(ip)
+    except AddressNotFoundError:
+        country = 'local'
 
     loginform = Login(None or request.POST)
     signupform = Signup(None or request.POST)
@@ -40,7 +45,7 @@ def about(request):
         return HttpResponseRedirect('')
 
     return render(request, 'booksearch/About.html', {'loginform': loginform, 'signupform': signupform,
-                                                     'ip': g.city(ip)})
+                                                     'ip': })
 
 
 def search(request):
