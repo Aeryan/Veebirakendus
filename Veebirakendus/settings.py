@@ -125,6 +125,8 @@ LOGIN_REDIRECT_URL = 'index'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '886251430425-qnqo5lerj05cef64lp4ev1cu7d15hko8.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Ctd1b2D-1MY6ws_vWGH6qVzy'
 
+GEOIP_PATH = 'static/geoip/'
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 

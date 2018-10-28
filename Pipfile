@@ -12,6 +12,7 @@ whitenoise = "*"
 django-heroku = "*"
 bcrypt = "*"
 social-auth-app-django = "*"
+geoip2 = "*"
 
 [requires]
 python_version = "3.6"

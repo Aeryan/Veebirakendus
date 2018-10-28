@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d000f11c-7af1-46c2-9884-0d547f2d52e6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Veebirakendus/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Veebirakendus/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/booksearch/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/booksearch/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/booksearch/About.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/booksearch/About.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -57,12 +59,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="Pipfile" value="1" />
+          <entry key="Pipfile" value="2" />
           <entry key="css" value="31" />
           <entry key="html" value="32" />
           <entry key="js" value="8" />
           <entry key="lock" value="1" />
-          <entry key="py" value="41" />
+          <entry key="py" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -70,17 +72,18 @@
           <entry key="CSS" value="31" />
           <entry key="HTML" value="32" />
           <entry key="JavaScript" value="8" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="41" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="Python" value="42" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="Pipfile" value="23" />
           <entry key="Python Console" value="16" />
           <entry key="css" value="629" />
           <entry key="html" value="2927" />
           <entry key="js" value="177" />
-          <entry key="py" value="5715" />
+          <entry key="py" value="5846" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -88,7 +91,8 @@
           <entry key="CSS" value="629" />
           <entry key="HTML" value="2927" />
           <entry key="JavaScript" value="177" />
-          <entry key="Python" value="5729" />
+          <entry key="PLAIN_TEXT" value="23" />
+          <entry key="Python" value="5860" />
           <entry key="SQL" value="2" />
         </counts>
       </usages-collector>
@@ -99,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/booksearch/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+            <state relative-caret-position="748">
+              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
               </folding>
@@ -109,6 +113,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Veebirakendus/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="127" column="26" selection-start-line="127" selection-start-column="26" selection-end-line="127" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Pipfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/booksearch/About.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="636">
@@ -144,7 +166,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Veebirakendus/settings.py" />
         <option value="$PROJECT_DIR$/static/booksearch/Frontpage.css" />
         <option value="$PROJECT_DIR$/booksearch/urls.py" />
         <option value="$PROJECT_DIR$/templates/booksearch/Frontpage.html" />
@@ -155,8 +176,10 @@
         <option value="$PROJECT_DIR$/booksearch/forms.py" />
         <option value="$PROJECT_DIR$/templates/booksearch/MyLists.html" />
         <option value="$PROJECT_DIR$/static/booksearch/MyLists.css" />
-        <option value="$PROJECT_DIR$/booksearch/views.py" />
         <option value="$PROJECT_DIR$/templates/booksearch/About.html" />
+        <option value="$PROJECT_DIR$/Pipfile" />
+        <option value="$PROJECT_DIR$/booksearch/views.py" />
+        <option value="$PROJECT_DIR$/Veebirakendus/settings.py" />
       </list>
     </option>
   </component>
@@ -201,7 +224,7 @@
               <item name="Veebirakendus" type="b2602c69:ProjectViewProjectNode" />
               <item name="Veebirakendus" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="booksearch" type="462c0819:PsiDirectoryNode" />
+              <item name="geoip" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Veebirakendus" type="b2602c69:ProjectViewProjectNode" />
@@ -294,9 +317,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../OS/os_planeerija_demo_2015.py" />
-    <entry file="file://$PROJECT_DIR$/Pipfile">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Pipfile.lock">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -304,13 +324,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Veebirakendus/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2482">
-          <caret line="148" column="55" selection-start-line="148" selection-start-column="55" selection-end-line="148" selection-end-column="216" />
         </state>
       </provider>
     </entry>
@@ -392,20 +405,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/booksearch/About.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pipfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/booksearch/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="31" column="39" lean-forward="true" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
+        <state relative-caret-position="748">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/booksearch/About.html">
+    <entry file="file://$PROJECT_DIR$/Veebirakendus/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="636">
-          <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
+        <state relative-caret-position="480">
+          <caret line="127" column="26" selection-start-line="127" selection-start-column="26" selection-end-line="127" selection-end-column="26" />
         </state>
       </provider>
     </entry>

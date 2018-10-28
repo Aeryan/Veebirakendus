@@ -5,6 +5,7 @@ from django.db import IntegrityError, connection
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
+from django.contrib.gis.geoip2 import GeoIP2
 import bcrypt
 
 salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
@@ -13,6 +14,9 @@ salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
 def about(request):
 
     ip = request.META.get('REMOTE_ADDR')
+
+    g = GeoIP2()
+
 
     loginform = Login(None or request.POST)
     signupform = Signup(None or request.POST)
@@ -36,7 +40,7 @@ def about(request):
         return HttpResponseRedirect('')
 
     return render(request, 'booksearch/About.html', {'loginform': loginform, 'signupform': signupform,
-                                                     'ip': ip})
+                                                     'ip': g.city(ip)})
 
 
 def search(request):
