@@ -12,6 +12,8 @@ whitenoise = "*"
 django-heroku = "*"
 bcrypt = "*"
 social-auth-app-django = "*"
+django_user_agents = "*"
+matplotlib = "*"
 
 [requires]
 python_version = "3.6"

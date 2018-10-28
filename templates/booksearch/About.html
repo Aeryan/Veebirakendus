@@ -113,8 +113,38 @@
 
 <div id="kasutajainfo">
     <h3>Statistika külastajate kohta</h3>
+    <p>{{ ip }}</p>
+    <p>{{ browser }}, {{ os }}</p>
+    <p>{{ time }}</p>
+    <br>
+    <h4>Kasutatud brauserid</h4>
+    <table id="browsertable">
+        {% for browser in browserdata %}
+            <tr>
+                {% for value in browser %}
+                    <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <h4>Kasutatud operatsioonisüsteemid</h4>
+    <table id="ostable">
+        {% for os in osdata %}
+            <tr>
+                {% for value in os %}
+                    <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <h4>Lehtede külastamise kellaajad</h4>
+    <img src="{% static 'booksearch/hittimes.png' %}">
 </div>
 
+
+<!--
 <script type="text/javascript">
     var kasutajainfo = document.getElementById('kasutajainfo');
 
@@ -122,6 +152,7 @@
         kasutajainfo.innerHTML += "IP: " +  response.ip + "<br>Riik: " + response.country + "<br>Linn: " + response.city;
     }, "jsonp")
 </script>
+-->
 
 <div id="wrap">
     <img src="https://www.incimages.com/uploaded_files/image/970x450/getty_598063032_349381.jpg" alt="Raamatud1">

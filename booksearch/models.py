@@ -22,3 +22,11 @@ class owned(models.Model):
     usr = models.IntegerField(default=0)
     book = models.ForeignKey(raamatud, to_field='id', on_delete=models.CASCADE)
     comment = models.CharField(max_length=300)
+
+
+class tracking(models.Model):
+    id = models.AutoField(primary_key=True)
+    ip = models.CharField(max_length=30)
+    brauser = models.CharField(max_length=30)
+    os = models.CharField(max_length=30)
+    time = models.DateTimeField()

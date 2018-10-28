@@ -1,16 +1,38 @@
 from django.http import HttpResponseRedirect
 from .forms import Login, Signup, Search, AddOwned, AddWanted, RemoveWanted
-from .models import raamatud, owned, wanted
+from .models import raamatud, owned, wanted, tracking
 from django.db import IntegrityError, connection
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
+from matplotlib.ticker import MaxNLocator
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+import datetime
 import bcrypt
 
 salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
 
 
+def add_to_tracking(request):
+    ip = request.META.get('REMOTE_ADDR')
+    browser = request.user_agent.browser.family
+    time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # '2004-10-19 10:23:54+02'
+    os = request.user_agent.os.family
+
+    timetable = tracking(ip=ip, brauser=browser, time=time, os=os)
+    timetable.save()
+
+
 def about(request):
+
+    access_times = []
+    for i in tracking.objects.values_list('time'):
+        access_times.append(float(i[0].strftime('%M.%S')))
+    plt.hist(access_times, range=[0.0, 24.0], bins=24, align='left')
+    plt.savefig('static/booksearch/hittimes.png', bbox_inches='tight')
+    plt.clf()
+
     loginform = Login(None or request.POST)
     signupform = Signup(None or request.POST)
 
@@ -32,7 +54,26 @@ def about(request):
             return HttpResponseRedirect('/')
         return HttpResponseRedirect('')
 
-    return render(request, 'booksearch/About.html', {'loginform': loginform, 'signupform': signupform})
+    ip = request.META.get('REMOTE_ADDR')
+    browser = request.user_agent.browser.family
+    time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    os = request.user_agent.os.family
+
+    browser_list = tracking.objects.values_list('brauser').distinct()
+    browser_data = []
+    for i in browser_list:
+        browser_data.append([tracking.objects.filter(brauser=i[0]).count(), i[0]])
+    browser_data = sorted(browser_data, reverse=True)
+
+    os_list = tracking.objects.values_list('os').distinct()
+    os_data = []
+    for i in os_list:
+        os_data.append([tracking.objects.filter(os=i[0]).count(), i[0]])
+    os_data = sorted(os_data, reverse=True)
+
+    return render(request, 'booksearch/About.html', {'loginform': loginform, 'signupform': signupform,
+                                                     'ip': ip, 'browser': browser, 'time': time, 'os': os,
+                                                     'browserdata': browser_data, 'osdata': os_data})
 
 
 def search(request):
@@ -128,6 +169,7 @@ def mylists(request):
 
 
 def index(request):
+    add_to_tracking(request)
 
     if request.method == 'POST':
         loginform = Login(None or request.POST)
