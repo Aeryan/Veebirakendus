@@ -5,12 +5,19 @@ from django.db import IntegrityError, connection
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
+import datetime
 import bcrypt
 
 salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
 
 
 def about(request):
+
+    ip = request.META.get('REMOTE_ADDR')
+    browser = request.META.get('HTTP_USER_AGENT')
+    time = datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')
+    os = request.user_agent.os.family
+
     loginform = Login(None or request.POST)
     signupform = Signup(None or request.POST)
 
@@ -32,7 +39,8 @@ def about(request):
             return HttpResponseRedirect('/')
         return HttpResponseRedirect('')
 
-    return render(request, 'booksearch/About.html', {'loginform': loginform, 'signupform': signupform})
+    return render(request, 'booksearch/About.html', {'loginform': loginform, 'signupform': signupform,
+                                                     'ip': ip, 'browser': browser, 'time': time, 'os': os})
 
 
 def search(request):
