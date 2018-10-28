@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from .forms import Login, Signup, Search, AddOwned, AddWanted, RemoveWanted
-from .models import raamatud, owned, wanted
+from .models import raamatud, owned, wanted, tracking
 from django.db import IntegrityError, connection
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
@@ -11,12 +11,17 @@ import bcrypt
 salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
 
 
-def about(request):
-
+def add_to_tracking(request):
     ip = request.META.get('REMOTE_ADDR')
-    browser = request.META.get('HTTP_USER_AGENT')
-    time = datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')
+    browser = request.user_agent.browser.family
+    time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # '2004-10-19 10:23:54+02'
     os = request.user_agent.os.family
+
+    timetable = tracking(ip=ip, brauser=browser, time=time, os=os)
+    timetable.save()
+
+
+def about(request):
 
     loginform = Login(None or request.POST)
     signupform = Signup(None or request.POST)
@@ -39,9 +44,13 @@ def about(request):
             return HttpResponseRedirect('/')
         return HttpResponseRedirect('')
 
+    ip = request.META.get('REMOTE_ADDR')
+    browser = request.user_agent.browser.family
+    time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    os = request.user_agent.os.family
+
     return render(request, 'booksearch/About.html', {'loginform': loginform, 'signupform': signupform,
                                                      'ip': ip, 'browser': browser, 'time': time, 'os': os})
-
 
 
 def search(request):
@@ -137,6 +146,7 @@ def mylists(request):
 
 
 def index(request):
+    add_to_tracking(request)
 
     if request.method == 'POST':
         loginform = Login(None or request.POST)
