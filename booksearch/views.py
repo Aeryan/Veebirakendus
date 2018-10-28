@@ -5,6 +5,9 @@ from django.db import IntegrityError, connection
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
+from matplotlib.ticker import MaxNLocator
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 import datetime
 import bcrypt
 
@@ -22,6 +25,13 @@ def add_to_tracking(request):
 
 
 def about(request):
+
+    access_times = []
+    for i in tracking.objects.values_list('time'):
+        access_times.append(float(i[0].strftime('%M.%S')))
+    plt.hist(access_times, range=[0.0, 24.0], bins=24, align='left')
+    plt.savefig('static/booksearch/hittimes.png', bbox_inches='tight')
+    plt.clf()
 
     loginform = Login(None or request.POST)
     signupform = Signup(None or request.POST)
