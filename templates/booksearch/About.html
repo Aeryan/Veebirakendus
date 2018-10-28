@@ -113,15 +113,8 @@
 
 <div id="kasutajainfo">
     <h3>Statistika külastajate kohta</h3>
+    <p>{{ ip }}</p>
 </div>
-
-<script type="text/javascript">
-    var kasutajainfo = document.getElementById('kasutajainfo');
-
-    $.get("https://ipinfo.io", function(response) {
-        kasutajainfo.innerHTML += "IP: " +  response.ip + "<br>Riik: " + response.country + "<br>Linn: " + response.city;
-    }, "jsonp")
-</script>
 
 <div id="wrap">
     <img src="https://www.incimages.com/uploaded_files/image/970x450/getty_598063032_349381.jpg" alt="Raamatud1">

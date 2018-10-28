@@ -11,6 +11,9 @@ salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
 
 
 def about(request):
+
+    ip = request.META.get('REMOTE_ADDR')
+
     loginform = Login(None or request.POST)
     signupform = Signup(None or request.POST)
 
@@ -32,7 +35,8 @@ def about(request):
             return HttpResponseRedirect('/')
         return HttpResponseRedirect('')
 
-    return render(request, 'booksearch/About.html', {'loginform': loginform, 'signupform': signupform})
+    return render(request, 'booksearch/About.html', {'loginform': loginform, 'signupform': signupform,
+                                                     'ip': ip})
 
 
 def search(request):
