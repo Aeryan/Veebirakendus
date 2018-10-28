@@ -49,8 +49,21 @@ def about(request):
     time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     os = request.user_agent.os.family
 
+    browser_list = tracking.objects.values_list('brauser').distinct()
+    browser_data = []
+    for i in browser_list:
+        browser_data.append([tracking.objects.filter(brauser=i[0]).count(), i[0]])
+    browser_data = sorted(browser_data, reverse=True)
+
+    os_list = tracking.objects.values_list('os').distinct()
+    os_data = []
+    for i in os_list:
+        os_data.append([tracking.objects.filter(os=i[0]).count(), i[0]])
+    os_data = sorted(os_data, reverse=True)
+
     return render(request, 'booksearch/About.html', {'loginform': loginform, 'signupform': signupform,
-                                                     'ip': ip, 'browser': browser, 'time': time, 'os': os})
+                                                     'ip': ip, 'browser': browser, 'time': time, 'os': os,
+                                                     'browserdata': browser_data, 'osdata': os_data})
 
 
 def search(request):
