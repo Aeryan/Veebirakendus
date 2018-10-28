@@ -45,7 +45,7 @@ def about(request):
         return HttpResponseRedirect('')
 
     return render(request, 'booksearch/About.html', {'loginform': loginform, 'signupform': signupform,
-                                                     'ip': })
+                                                     'ip': country})
 
 
 def search(request):
