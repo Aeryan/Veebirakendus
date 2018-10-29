@@ -117,7 +117,6 @@
     <p>ip: {{ ip }}</p>
     <p>brauser: {{ browser }}, os: {{ os }}</p>
     <p>Lehe avamise kellaaeg: {{ time }}</p>
-    <br>
     <h4>Kasutatud brauserid</h4>
     <table id="browsertable">
         {% for browser in browserdata %}
@@ -128,7 +127,6 @@
             </tr>
         {% endfor %}
     </table>
-    <br>
     <h4>Kasutatud operatsioonisüsteemid</h4>
     <table id="ostable">
         {% for os in osdata %}
