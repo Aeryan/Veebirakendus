@@ -50,6 +50,8 @@ def about(request):
         user = User.objects.create_user(signup_name, password=signup_password)
         try:
             user.save()
+            user_auth = authenticate(request, username=signup_name, password=signup_password)
+            login(request, user_auth)
         except IntegrityError:
             return HttpResponseRedirect('/')
         return HttpResponseRedirect('')
@@ -96,7 +98,8 @@ def search(request):
         user = User.objects.create_user(signup_name, password=signup_password)
         try:
             user.save()
-            HttpResponseRedirect('')
+            user_auth = authenticate(request, username=signup_name, password=signup_password)
+            login(request, user_auth)
         except IntegrityError:
             return HttpResponseRedirect('/')
         return HttpResponseRedirect('')
@@ -190,6 +193,8 @@ def index(request):
             user = User.objects.create_user(signup_name, password=signup_password)
             try:
                 user.save()
+                user_auth = authenticate(request, username=signup_name, password=signup_password)
+                login(request, user_auth)
             except IntegrityError:
                 return HttpResponseRedirect('/')
             return HttpResponseRedirect('')
