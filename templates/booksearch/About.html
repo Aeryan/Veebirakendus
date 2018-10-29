@@ -112,10 +112,10 @@
 
 <div id="kasutajainfo">
     <h3>Statistika külastajate kohta</h3>
-    <p>{{ ip }}</p>
-    <p>{{ browser }}, {{ os }}</p>
-    <p>{{ time }}</p>
-    <br>
+    <h4>Selle sessiooni andmed</h4>
+    <p>ip: {{ ip }}</p>
+    <p>brauser: {{ browser }}, os: {{ os }}</p>
+    <p>Lehe avamise kellaaeg: {{ time }}</p>
     <h4>Kasutatud brauserid</h4>
     <table id="browsertable">
         {% for browser in browserdata %}
@@ -126,7 +126,6 @@
             </tr>
         {% endfor %}
     </table>
-    <br>
     <h4>Kasutatud operatsioonisüsteemid</h4>
     <table id="ostable">
         {% for os in osdata %}

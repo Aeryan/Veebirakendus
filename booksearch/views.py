@@ -28,7 +28,7 @@ def about(request):
 
     access_times = []
     for i in tracking.objects.values_list('time'):
-        access_times.append(float(i[0].strftime('%M.%S')))
+        access_times.append(float(i[0].strftime('%H.%M')))
     plt.hist(access_times, range=[0.0, 24.0], bins=24, align='left')
     plt.savefig('static/booksearch/hittimes.png', bbox_inches='tight')
     plt.clf()
