@@ -12,7 +12,7 @@ class raamatud(models.Model):
 
 class wanted(models.Model):
     id = models.AutoField(primary_key=True)
-    usr = models.IntegerField(primary_key=True, default=0)
+    usr = models.IntegerField(default=0)
     book = models.ForeignKey(raamatud, to_field='id', on_delete=models.CASCADE, default=0)
     comment = models.CharField(max_length=300)
 
