@@ -8,7 +8,7 @@
     <title>About</title>
     <link rel="stylesheet" type="text/css" href="{% static 'booksearch/About.css' %}">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="{% static 'booksearch/scripts.js' %}"></script>
+    <script>window.jQuery || document.write("<script src=\"{% static 'jquery-3.3.1.js' %}\"><\/script>")</script>
     <script>
         function yHandler() {
             var wrap = document.getElementById('wrap');
@@ -23,6 +23,7 @@
         }
         window.onscroll = yHandler;
     </script>
+    <script src="{% static 'booksearch/scripts.js' %}"></script>
 </head>
 <body>
 
@@ -141,16 +142,18 @@
     <img src="{% static 'booksearch/hittimes.png' %}" alt="Külastamiste kellajad">
 </div>
 
+<div id="uus">
+    <h3>CDN testi jaoks</h3>
+</div>
 
-<!--
 <script type="text/javascript">
-    var kasutajainfo = document.getElementById('kasutajainfo');
+    var uus = document.getElementById('uus');
 
     $.get("https://ipinfo.io", function(response) {
-        kasutajainfo.innerHTML += "IP: " +  response.ip + "<br>Riik: " + response.country + "<br>Linn: " + response.city;
+        uus.innerHTML += "Sinu IP: " +  response.ip + "<br>Sinu Riik: " + response.country;
     }, "jsonp")
 </script>
--->
+
 
 <div id="wrap">
     <img src="https://www.incimages.com/uploaded_files/image/970x450/getty_598063032_349381.jpg" alt="Raamatud1">
