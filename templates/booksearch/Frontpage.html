@@ -15,7 +15,7 @@
             var $span = $('<span class="fa" style="display:none"></span>').appendTo('body');
             if ($span.css('fontFamily') !== 'FontAwesome' ) {
                 // Fallback Link
-                $('head').append("<link href=\"{% static 'fontawesome-free-5.5.0-web/css/fontawesome.min.css' %}\" rel=\"stylesheet\">");
+                $('head').append("<link href=\"{% static 'fontawesome-free-5.5.0-web/css/fontawesome.css' %}\" rel=\"stylesheet\">");
             }
             $span.remove();
         })(jQuery);
