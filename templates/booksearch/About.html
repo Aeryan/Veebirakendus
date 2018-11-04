@@ -104,7 +104,7 @@
     <div id="uus"></div>
     <script src="{% static 'booksearch/ipinfo.js' %}"></script>
     <p>Brauser: {{ browser }}, os: {{ os }}</p>
-    <p>Lehe avamise kellaaeg: {{ time }}</p>
+    <p>Lehe avamise kellaaeg: {{ time }} (UTC)</p>
     <h4>Kasutatud brauserid</h4>
     <table id="browsertable">
         {% for browser in browserdata %}
