@@ -71,11 +71,11 @@
     </div>
     {% if user.is_authenticated %}
     <form class="invisForm" id="ownedForm" method="post"> {% csrf_token %}
-        <table id="ownedTable">{{ ownedform }}</table>
+        {{ ownedform.as_p }}
         <button type="submit" id="ownedButton" onclick="fillOwned()">Mul on see raamat!</button>
     </form>
     <form class="invisForm" id="wantedForm" method="post">{% csrf_token %}
-        <table id="wantedTable">{{ wantedform }}</table>
+        {{ wantedform.as_p }}
         <button type="submit" id="wantedButton" onclick="fillWanted()">Ma tahan seda raamatut!</button>
     </form>
     {% endif %}

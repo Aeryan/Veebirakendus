@@ -63,7 +63,7 @@
         <p>Või äkki jätame selle osa üldse ära? Ehk lihtsalt üks leht (mitte kaheks jagatud)?</p>
     </div>
     <form class="invisForm" id="rmWantedForm" method="post"> {% csrf_token %}
-        <table id="rmWantedTable">{{ rmwantedform }}</table>
+        {{ rmwantedform.as_p }}
         <button type="submit" id="rmWantedButton" onclick="fillWanted();
         document.getElementById('rmWantedForm').style.display='none';">Ma ei taha seda raamatut!</button>
     </form>
