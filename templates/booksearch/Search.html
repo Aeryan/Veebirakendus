@@ -80,21 +80,6 @@
     </form>
     {% endif %}
 </div>
-	
-<script type="text/javascript">
-    var table = document.getElementById('table');
-    var parem = document.getElementById('parem');
-    var valik;
-
-    for (var i = 0; i < table.rows.length; i++) {
-        table.rows[i].onclick = function() {
-            valik = this.cells[0].innerHTML;
-            parem.innerHTML = "Selle raamatu pealkiri on \"" + valik + "\".";
-            document.getElementById('ownedForm').style.display='block';
-            document.getElementById('wantedForm').style.display='block';
-        }
-    }
-</script>	
 
 <!-- Login modal -->
 <div id="login" class="popup">
@@ -149,5 +134,6 @@
 </div>
 
 <script src="{% static 'booksearch/scripts.js' %}"></script>
+<script src="{% static 'booksearch/Search.js' %}"></script>
 </body>
 </html>
