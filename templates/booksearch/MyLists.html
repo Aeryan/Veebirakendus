@@ -1,10 +1,10 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
 <head>
     <meta charset="UTF-8">
 	<meta name="description" content="Raamatu otsingumootori Bookworm otsingu tulemuste leht">
-	<meta name="keywords" content="bookworm,search,otsi,raamat,raamatud,otsi raamatuid,raamatu otsingumootor">
+	<meta name="keywords" content="bookworm, search, otsi, raamat, raamatud, otsi raamatuid, raamatu otsingumootor">
     <title>MyLists</title>
     <link rel="stylesheet" type="text/css" href="{% static 'booksearch/MyLists.css' %}">
     <script src="{% static 'booksearch/scripts.js' %}"></script>
@@ -13,14 +13,14 @@
 
 <!--Navigation bars-->
 <ul id="loggedInNavbar">
-    <li style="float:left"><a href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
-    <li><a href="https://vl2018-ryhm15.herokuapp.com/about">Meist</a></li>
+    <li style="float:left"><a title="Pealehele" href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
+    <li><a title="Rohkem infot Bookwormi kohta" href="https://vl2018-ryhm15.herokuapp.com/about">Meist</a></li>
     <li>
         <form action="{% url 'mylists' %}" method="post"> {% csrf_token %}
-            <a href="javascript:;" onclick="parentNode.submit();">Minu nimekirjad</a>
+            <a title="Minu Bookworm nimekirjad" rel="nofollow" href="javascript:;" onclick="parentNode.submit();">Minu nimekirjad</a>
         </form>
     </li>
-    <li><a href="{% url 'signout' %}">Logi välja</a></li>
+    <li><a title="Logi Bookwormist välja" rel="nofollow" href="{% url 'signout' %}">Logi välja</a></li>
     <li>Seaded</li>
 </ul>
 
