@@ -101,8 +101,9 @@
 <div id="kasutajainfo">
     <h3>Statistika külastajate kohta</h3>
     <h4>Selle sessiooni andmed</h4>
-    <p>ip: {{ ip }}</p>
-    <p>brauser: {{ browser }}, os: {{ os }}</p>
+    <div id="uus"></div>
+    <script src="{% static 'booksearch/ipinfo.js' %}"></script>
+    <p>Brauser: {{ browser }}, os: {{ os }}</p>
     <p>Lehe avamise kellaaeg: {{ time }}</p>
     <h4>Kasutatud brauserid</h4>
     <table id="browsertable">
@@ -128,11 +129,6 @@
     <h4>Lehtede külastamise kellaajad (UTC)</h4>
     <img src="{% static 'booksearch/hittimes.png' %}" alt="Külastamiste kellajad">
 </div>
-
-<div id="uus">
-    <h3>CDN testi jaoks</h3>
-</div>
-<script src="{% static 'booksearch/ipinfo.js' %}"></script>
 
 <div id="wrap">
     <img src="https://www.incimages.com/uploaded_files/image/970x450/getty_598063032_349381.jpg" alt="Raamatud1">
