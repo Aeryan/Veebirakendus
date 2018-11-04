@@ -1,10 +1,10 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
 <head>
     <meta charset="UTF-8">
 	<meta name="description" content = "Raamatu otsingumootori Bookwormi otsinguleht">
-	<meta name="keywords" content="raamat,otsing,bookworm,otsi raamatuid">
+	<meta name="keywords" content="raamat, otsing, bookworm, otsi raamatuid">
     <title>Search</title>
     <link rel="stylesheet" type="text/css" href="{% static 'booksearch/Search.css' %}">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,22 +30,22 @@
 <!-- Teine navbar, mis kuvatakse sisselogitud kasutajale -->
 {% if user.is_authenticated %}
 <ul id="loggedInNavbar">
-    <li style="float:left"><a href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
-    <li><a href="https://vl2018-ryhm15.herokuapp.com/about">Meist</a></li>
+    <li style="float:left"><a title="Pealehele" href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
+    <li><a title="Rohkem infot Bookwormi kohta" href="https://vl2018-ryhm15.herokuapp.com/about">Meist</a></li>
     <li>
         <form action="{% url 'mylists' %}" method="post"> {% csrf_token %}
-            <a href="javascript:;" onclick="parentNode.submit();">Minu nimekirjad</a>
+            <a title="Minu Bookworm nimekirjad" rel="nofollow" href="javascript:;" onclick="parentNode.submit();">Minu nimekirjad</a>
         </form>
     </li>
-    <li><a href="{% url 'signout' %}">Logi välja</a></li>
+    <li><a title="Logi Bookwormist välja" rel="nofollow" href="{% url 'signout' %}">Logi välja</a></li>
     <li>Seaded</li>
 </ul>
 {% else %}
 <ul id="loggedOutNavbar">
-    <li style="float:left"><a href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
-    <li><a href="https://vl2018-ryhm15.herokuapp.com/about">Meist</a></li>
-    <li onclick="document.getElementById('login').style.display='none'; document.getElementById('signup').style.display='block'">Loo kasutaja</li>
-    <li onclick="document.getElementById('signup').style.display='none'; document.getElementById('login').style.display='block'">Logi sisse</li>
+    <li style="float:left"><a title="Pealehele" href="https://vl2018-ryhm15.herokuapp.com/">BOOKWORM</a></li>
+    <li><a title="Rohkem infot Bookwormi kohta" href="https://vl2018-ryhm15.herokuapp.com/about">Meist</a></li>
+    <li title="Logi Bookrowrmi sisse" rel="nofollow" onclick="document.getElementById('login').style.display='none'; document.getElementById('signup').style.display='block'">Loo kasutaja</li>
+    <li title="Registreeru Bookwormi kasutajaks" rel="nofollow" onclick="document.getElementById('signup').style.display='none'; document.getElementById('login').style.display='block'">Logi sisse</li>
 </ul>
 {% endif %}
 
@@ -101,7 +101,7 @@
         </div>
 
         <div class="center">
-            <a href="{% url 'social:begin' 'google-oauth2' %}"><img class= "center" src="{% static 'booksearch/btn_google_signin_light_normal_web.png' %}" alt="Sign in with Google"></a>
+            <a href="{% url 'social:begin' 'google-oauth2' %}"><img class= "center" src="{% static 'booksearch/btn_google_signin_light_normal_web.png' %}" alt="Sign in with Google" title="Logi sisse Googlega"></a>
 
         </div>
         <div class="container">
