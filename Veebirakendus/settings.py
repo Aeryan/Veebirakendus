@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '0+_+f6+79$k=@c_4y_#*++2b@he*kfrbw#7hc0p!**k67x@e-@'
+SECRET_KEY = os.getenv('DJANGO_SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'postgresql-fluffy-59250',
         'USER': 'postgres',
-        'PASSWORD' : 'Karumõmm6',
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': 'localhost',
         'PORT': 5432,
     }
@@ -124,8 +124,8 @@ AUTHENTICATION_BACKENDS = (
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '886251430425-qnqo5lerj05cef64lp4ev1cu7d15hko8.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Ctd1b2D-1MY6ws_vWGH6qVzy'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/

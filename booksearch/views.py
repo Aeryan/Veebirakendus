@@ -5,9 +5,7 @@ from django.db import IntegrityError, connection
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
-from matplotlib.ticker import MaxNLocator
 import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
 import datetime
 import bcrypt
 
