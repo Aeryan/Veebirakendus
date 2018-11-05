@@ -44,6 +44,9 @@ li:hover:not(.active) {
     background-color: #4CAF50;
 }
 
+ul.errorlist {
+    display: none;
+}
 
 /* Split the screen in half */
 .split {
