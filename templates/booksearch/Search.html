@@ -67,20 +67,29 @@
 </div>
 
 <div class="split right">
-    <div id="parem" class="centered">
-        <h2>Javascriptiga (või Djangoga?) rohkem infot raamatu kohta...</h2>
-        <p>Või äkki jätame selle osa üldse ära? Ehk lihtsalt üks leht (mitte kaheks jagatud)?</p>
+    <div id="vasak" class="vasak">
+
     </div>
-    {% if user.is_authenticated %}
-    <form class="invisForm" id="ownedForm" method="post"> {% csrf_token %}
-        {{ ownedform.as_p }}
-        <button type="submit" id="ownedButton" onclick="fillOwned()">Mul on see raamat!</button>
-    </form>
-    <form class="invisForm" id="wantedForm" method="post">{% csrf_token %}
-        {{ wantedform.as_p }}
-        <button type="submit" id="wantedButton" onclick="fillWanted()">Ma tahan seda raamatut!</button>
-    </form>
-    {% endif %}
+
+    <div id="parem" class="parem">
+        <div id="pilt">
+
+        </div>
+
+        <div id="nupud">
+            {% if user.is_authenticated %}
+            <form class="invisForm" id="ownedForm" method="post"> {% csrf_token %}
+                {{ ownedform.as_p }}
+                <button type="submit" id="ownedButton" onclick="fillOwned()">Mul on see raamat!</button>
+            </form>
+            <form class="invisForm" id="wantedForm" method="post">{% csrf_token %}
+                {{ wantedform.as_p }}
+                <button type="submit" id="wantedButton" onclick="fillWanted()">Ma tahan seda raamatut!</button>
+            </form>
+            {% endif %}
+        </div>
+
+    </div>
 </div>
 
 <!-- Login modal -->
