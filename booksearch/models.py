@@ -5,8 +5,8 @@ class raamatud(models.Model):
     pealkiri = models.CharField(max_length=50)
     autor = models.CharField(max_length=30)
     kirjastus = models.CharField(max_length=30)
-    ilmumisaasta = models.IntegerField
-    lehekülgi = models.IntegerField
+    ilmumisaasta = models.IntegerField(null=True)
+    lehekülgi = models.IntegerField(null=True)
     keel = models.CharField(max_length=10)
 
 
@@ -30,3 +30,8 @@ class tracking(models.Model):
     brauser = models.CharField(max_length=30)
     os = models.CharField(max_length=30)
     time = models.DateTimeField()
+
+
+class bookCovers(models.Model):
+    bookID = models.IntegerField(null=True)
+    image = models.ImageField(upload_to='covers', null=True)

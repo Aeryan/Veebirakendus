@@ -35,3 +35,15 @@ class AddWanted(forms.Form):
 class RemoveWanted(forms.Form):
     tahtmatu_pealkiri = forms.CharField(label='Tahtmatu pealkiri', max_length=50, required=True,
                                         widget=forms.HiddenInput(attrs={'id': 'wantedField'}))
+
+
+class addBook(forms.Form):
+    pealkiri = forms.CharField(label='Pealkiri', max_length=50, required=True)
+    autor = forms.CharField(label='Autor', max_length=30, required=True)
+    kirjastus = forms.CharField(label='Kirjastus', max_length=30, required=True)
+    ilmumisaasta = forms.IntegerField(required=True)
+    lehekülgi = forms.IntegerField(required=True)
+    keel = forms.CharField(max_length=10, required=True)
+    pilt = forms.ImageField(required=False,
+                            widget=forms.FileInput(attrs={'type': 'file',
+                                                          'name': 'bookCover'}))

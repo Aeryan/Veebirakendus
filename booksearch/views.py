@@ -1,10 +1,13 @@
-from django.http import HttpResponseRedirect
-from .forms import Login, Signup, Search, AddOwned, AddWanted, RemoveWanted
+from django.http import HttpResponseRedirect, HttpResponse
+from .forms import Login, Signup, Search, AddOwned, AddWanted, RemoveWanted, addBook
 from .models import raamatud, owned, wanted, tracking
+from django.conf import settings
 from django.db import IntegrityError, connection
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
+from django.core.files.storage import FileSystemStorage
+from django.core.exceptions import ObjectDoesNotExist
 import matplotlib.pyplot as plt
 import datetime
 import bcrypt
@@ -20,6 +23,37 @@ def add_to_tracking(request):
 
     timetable = tracking(ip=ip, brauser=browser, time=time, os=os)
     timetable.save()
+
+
+def addition(request):
+    additionform = addBook(None or request.POST, None or request.FILES)
+    error = ""
+    if request.method == "POST":
+        if additionform.is_valid():
+            pealkiri = additionform.cleaned_data['pealkiri']
+            autor = additionform.cleaned_data['autor']
+            kirjastus = additionform.cleaned_data['kirjastus']
+            ilmumisaasta = additionform.cleaned_data['ilmumisaasta']
+            lk = additionform.cleaned_data['lehekülgi']
+            keel = additionform.cleaned_data['keel']
+            try:
+                raamatud.objects.get(pealkiri=pealkiri)
+                error = "See raamat on juba olemas!"
+            except ObjectDoesNotExist:
+                raamat = raamatud.objects.create(pealkiri=pealkiri, autor=autor,
+                                                 kirjastus=kirjastus,
+                                                 ilmumisaasta=ilmumisaasta,
+                                                 lehekülgi=lk, keel=keel)
+                raamat.save()
+
+                if request.FILES.get('pilt') is not None:
+                    pilt = request.FILES.get('pilt')
+                    fs = FileSystemStorage()
+                    filename = fs.save(pealkiri + "." + pilt.name.split('.')[1], pilt)
+                return HttpResponseRedirect('')
+
+    return render(request, 'booksearch/Add.html', {'additionform': additionform,
+                                                   'error': error})
 
 
 def about(request):

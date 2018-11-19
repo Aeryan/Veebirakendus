@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'booksearch/Frontpage.css' %}">
+    <title>Raamatu lisamine - Bookworm</title>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    <p>{{ error }}</p>
+    <table id="lisamine">
+        {{ additionform }}
+    </table>
+    <button type="submit" id="submitBookButton">Lisa raamat</button>
+</form>
+</body>
+</html>
