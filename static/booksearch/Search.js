@@ -6,19 +6,19 @@ var valik;
 
 function jpgerror() {
     let sorc = "/media/" + valik + ".png";
-    pilt.innerHTML = '<img src="' + sorc + '" alt="Hirmus Henry" onerror="pngerror()">';
+    pilt.innerHTML = '<img src="' + sorc + '" alt="Raamatu pilt" onerror="pngerror()">';
 }
 function pngerror() {
     let sorc = "/media/" + valik + ".gif";
-    pilt.innerHTML = '<img src="' + sorc + '" alt="Hirmus Henry" onerror="giferror()">';
+    pilt.innerHTML = '<img src="' + sorc + '" alt="Raamatu pilt" onerror="giferror()">';
 }
 function giferror() {
     let sorc = "/media/" + valik + ".jpeg";
-    pilt.innerHTML = '<img src="' + sorc + '" alt="Hirmus Henry" onerror="jpegerror()">';
+    pilt.innerHTML = '<img src="' + sorc + '" alt="Raamatu pilt" onerror="jpegerror()">';
 }
 function jpegerror() {
     let sorc = "/media/default.png";
-    pilt.innerHTML = '<img src="' + sorc + '" alt="Hirmus Henry">';
+    pilt.innerHTML = '<img src="' + sorc + '" alt="Raamatu pilt">';
 }
 
 
