@@ -15,6 +15,10 @@ django_user_agents = "*"
 matplotlib = "*"
 pillow = "*"
 "psycopg2-binary" = "*"
+selenium = "*"
+nose = "*"
+pinocchio = "*"
+django-nose = "*"
 
 [requires]
 python_version = "3.6"
