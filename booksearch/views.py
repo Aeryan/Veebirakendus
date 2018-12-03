@@ -1,7 +1,6 @@
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from .forms import Login, Signup, Search, AddOwned, AddWanted, RemoveWanted, addBook
 from .models import raamatud, owned, wanted, tracking
-from django.conf import settings
 from django.db import IntegrityError, connection
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
@@ -10,18 +9,15 @@ from django.core.files.storage import FileSystemStorage
 from django.core.exceptions import ObjectDoesNotExist
 import matplotlib.pyplot as plt
 import datetime
-import bcrypt
-
-salt = b'$2b$12$46cw2.wl5erIKwdMTQqeF.'
 
 
 def add_to_tracking(request):
     ip = request.META.get('REMOTE_ADDR')
     browser = request.user_agent.browser.family
-    time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # '2004-10-19 10:23:54+02'
-    os = request.user_agent.os.family
+    time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # '2004-10-19 10:23:54'
+    opsys = request.user_agent.os.family
 
-    timetable = tracking(ip=ip, brauser=browser, time=time, os=os)
+    timetable = tracking(ip=ip, brauser=browser, time=time, os=opsys)
     timetable.save()
 
 
@@ -49,7 +45,7 @@ def addition(request):
                 if request.FILES.get('pilt') is not None:
                     pilt = request.FILES.get('pilt')
                     fs = FileSystemStorage()
-                    filename = fs.save(pealkiri + "." + pilt.name.split('.')[1], pilt)
+                    fs.save(pealkiri + "." + pilt.name.split('.')[1], pilt)
                 return HttpResponseRedirect('')
 
     return render(request, 'booksearch/Add.html', {'additionform': additionform,
@@ -57,7 +53,6 @@ def addition(request):
 
 
 def about(request):
-
     access_times = []
     for i in tracking.objects.values_list('time'):
         access_times.append(float(i[0].strftime('%H.%M')))
@@ -70,7 +65,7 @@ def about(request):
 
     if loginform.is_valid():
         login_name = loginform.cleaned_data['login_k_nimi']
-        login_password = bcrypt.hashpw(loginform.cleaned_data['login_parool'].encode(), salt).decode()
+        login_password = loginform.cleaned_data['login_parool']
         user = authenticate(request, username=login_name, password=login_password)
         if user is not None:
             login(request, user)
@@ -78,7 +73,7 @@ def about(request):
 
     if signupform.is_valid():
         signup_name = signupform.cleaned_data['signup_k_nimi']
-        signup_password = bcrypt.hashpw(signupform.cleaned_data['signup_parool'].encode(), salt).decode()
+        signup_password = signupform.cleaned_data['signup_parool']
         user = User.objects.create_user(signup_name, password=signup_password)
         try:
             user.save()
@@ -91,7 +86,7 @@ def about(request):
     ip = request.META.get('REMOTE_ADDR')
     browser = request.user_agent.browser.family
     time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    os = request.user_agent.os.family
+    opsys = request.user_agent.os.family
 
     browser_list = tracking.objects.values_list('brauser').distinct()
     browser_data = []
@@ -106,7 +101,7 @@ def about(request):
     os_data = sorted(os_data, reverse=True)
 
     return render(request, 'booksearch/About.html', {'loginform': loginform, 'signupform': signupform,
-                                                     'ip': ip, 'browser': browser, 'time': time, 'os': os,
+                                                     'ip': ip, 'browser': browser, 'time': time, 'os': opsys,
                                                      'browserdata': browser_data, 'osdata': os_data})
 
 
@@ -118,7 +113,7 @@ def search(request):
 
     if loginform.is_valid():
         login_name = loginform.cleaned_data['login_k_nimi']
-        login_password = bcrypt.hashpw(loginform.cleaned_data['login_parool'].encode(), salt).decode()
+        login_password = loginform.cleaned_data['login_parool']
         user = authenticate(request, username=login_name, password=login_password)
         if user is not None:
             login(request, user)
@@ -126,7 +121,7 @@ def search(request):
 
     if signupform.is_valid():
         signup_name = signupform.cleaned_data['signup_k_nimi']
-        signup_password = bcrypt.hashpw(signupform.cleaned_data['signup_parool'].encode(), salt).decode()
+        signup_password = signupform.cleaned_data['signup_parool']
         user = User.objects.create_user(signup_name, password=signup_password)
         try:
             user.save()
@@ -209,11 +204,11 @@ def index(request):
     if request.method == 'POST':
         loginform = Login(None or request.POST)
         signupform = Signup(None or request.POST)
-        search = Search(None or request.POST)
+        searchform = Search(None or request.POST)
 
         if loginform.is_valid():
             login_name = loginform.cleaned_data['login_k_nimi']
-            login_password = bcrypt.hashpw(loginform.cleaned_data['login_parool'].encode(), salt).decode()
+            login_password = loginform.cleaned_data['login_parool']
             user = authenticate(request, username=login_name, password=login_password)
             if user is not None:
                 login(request, user)
@@ -221,7 +216,7 @@ def index(request):
 
         if signupform.is_valid():
             signup_name = signupform.cleaned_data['signup_k_nimi']
-            signup_password = bcrypt.hashpw(signupform.cleaned_data['signup_parool'].encode(), salt).decode()
+            signup_password = signupform.cleaned_data['signup_parool']
             user = User.objects.create_user(signup_name, password=signup_password)
             try:
                 user.save()
@@ -231,14 +226,13 @@ def index(request):
                 return HttpResponseRedirect('/')
             return HttpResponseRedirect('')
 
-        if search.is_valid():
-            request.session['sisend'] = search.cleaned_data['otsing']
+        if searchform.is_valid():
+            request.session['sisend'] = searchform.cleaned_data['otsing']
             return redirect('search')
 
     else:
         loginform = Login
         signupform = Signup
-        search = Search
+        searchform = Search
     return render(request, 'booksearch/Frontpage.html', {'loginform': loginform, 'signupform': signupform,
-                                                         'search': search})
-
+                                                         'search': searchform})
