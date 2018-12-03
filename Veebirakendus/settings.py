@@ -60,6 +60,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'Veebirakendus.urls'
 
 TEMPLATES = [
+
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')]
@@ -110,7 +111,8 @@ else:
 
     django_heroku.settings(locals())
     DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True,
-                                                  default='postgres://bzhasqfkpvqslf:fc18438928bbe086372066469a856974e44f8aaddadc8edeb6aaca54f6f7142e@ec2-54-217-235-159.eu-west-1.compute.amazonaws.com:5432/d40rmetu5fsrvu')
+                                                  default=os.environ.get('DB_LOC') or
+                                                  (open('.env', 'r').readline().split("=")[1]))
 
 
 # Password validation

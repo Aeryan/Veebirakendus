@@ -6,6 +6,13 @@ from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from .models import raamatud
 
+# Testide käitamiseks tuleb juurkaustas jooksutada käsku "python manage.py test"
+"""
+Tekkivad käitusajavead tulenevad andmebaasi seadistamisest ajatsoonitundlikuks. Kuna antud
+funktsionaalsust polnud võimalik siiski tööle saada, on andmebaasis ajad UTC järgi ja
+ajatsoonide eristamist ei kasutata, mida server antud veateadetega eeskujulikult meenutabki.
+"""
+
 
 @tag('fast', 'baseline')
 class BookTestCase(TestCase):
@@ -67,6 +74,20 @@ class SeleniumTestsFirefox(StaticLiveServerTestCase):
         cls.selenium.quit()
         super().tearDownClass()
 
+    def test_signup(self):
+        """Test esilehelt uue kasutaja loomiseks"""
+        self.selenium.get('%s%s' % (self.live_server_url, '/'))
+        self.selenium.find_element_by_id("signupModalActivator").click()
+        self.selenium.find_element_by_name('signup_k_nimi').send_keys("kristjan")
+        self.selenium.find_element_by_name('signup_parool').send_keys("habakukk")
+
+        self.selenium.find_element_by_id('signupButton').click()
+        WebDriverWait(self.selenium, self.timeout).until(
+            lambda driver: driver.find_element_by_tag_name('body'))
+
+        nimekirjad = self.selenium.find_element_by_xpath("/html/body/ul/li[3]/form/a")
+        self.assertEqual("Minu Bookworm nimekirjad", nimekirjad.get_attribute('title'))
+
     def test_login(self):
         """Test esilehelt sisse logimiseks"""
         self.selenium.get('%s%s' % (self.live_server_url, '/'))
@@ -119,6 +140,24 @@ class SeleniumTestsChrome(StaticLiveServerTestCase):
     def tearDownClass(cls):
         cls.selenium.quit()
         super().tearDownClass()
+
+    def test_signup(self):
+        """Test esilehelt uue kasutaja loomiseks"""
+        self.selenium.get('%s%s' % (self.live_server_url, '/'))
+        self.selenium.find_element_by_id("signupModalActivator").click()
+        self.selenium.find_element_by_name('signup_k_nimi').send_keys("kristjan")
+        self.selenium.find_element_by_name('signup_parool').send_keys("habakukk")
+
+        self.selenium.find_element_by_id('signupButton').click()
+        WebDriverWait(self.selenium, self.timeout).until(
+            lambda driver: driver.find_element_by_tag_name('body'))
+
+        # Chrome ei suuda rakenduse sisselogimisjärgset ümbersuunamist hallata,
+        # lehe värskendamisel töötab viimane ootuspäraselt
+        self.selenium.get('%s%s' % (self.live_server_url, '/'))
+
+        nimekirjad = self.selenium.find_element_by_xpath("/html/body/ul/li[3]/form/a")
+        self.assertEqual("Minu Bookworm nimekirjad", nimekirjad.get_attribute('title'))
 
     def test_login(self):
         """Test esilehelt sisse logimiseks"""
